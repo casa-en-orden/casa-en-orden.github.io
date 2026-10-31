@@ -44,7 +44,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 input{font:inherit;padding:13px 16px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);width:100%;margin:8px 0 14px}
 .cert{border:3px double var(--brand);border-radius:12px;background:var(--card);padding:36px 20px;text-align:center;margin:14px 0 20px}
 .cert .n{font-size:1.9rem;font-weight:800;margin:10px 0;overflow-wrap:anywhere}
-dialog{border:0;border-radius:24px;padding:24px;max-width:92vw;width:380px;background:var(--card);color:var(--ink)}
+dialog{border:0;border-radius:24px;padding:24px;max-height:90vh;overflow:auto;max-width:92vw;width:380px;background:var(--card);color:var(--ink)}
 dialog::backdrop{background:rgba(0,0,0,.5)}
 ul.ft{padding-left:18px;margin:8px 0 14px}
 .tabs{position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:999px;display:flex;gap:4px;padding:6px;box-shadow:0 8px 28px rgba(20,41,27,.14);z-index:5}
@@ -108,16 +108,20 @@ function count(){return Object.keys(S.done).length}
 /* ===== CONFIGURÁ ACÁ TU COBRO ===== */
 var GRATIS=false;
 var MP_LINK='https://mpago.la/33G1C9c';
-var PRECIO='$9999';
+var PRECIO='$9.999';
 var CODIGOS=['CASA-4F7K','CASA-9XQ2','CASA-L3M8','CASA-T6W1','CASA-B8R5','CASA-H2N9','CASA-Z5C4','CASA-K7D3','CASA-P1V6','CASA-Y9J2'];
+var ALIAS='quepin.quepon';
+var WSP='5493584831449';
 /* ================================== */
 function locked(m){return !GRATIS&&!M[m].free&&!S.pro}
 function nextUndone(){for(var m=0;m<M.length;m++)for(var l=0;l<M[m].l.length;l++)if(!S.done[m+'-'+l])return[m,l];return null}
 function go(m,l){if(locked(m)){paywall();return}S.v='lesson';S.m=m;S.l=l;save();render();window.scrollTo(0,0)}
 function paywall(){
   var d=document.getElementById('dlg');
-  d.innerHTML='<h2>Desbloqueá el curso completo</h2><p class="sub">Los módulos 2 al 5 están incluidos en tu acceso completo.</p><ul class="ft"><li>14 lecciones con prácticas</li><li>Plan de 30 días</li><li>Certificado final</li><li>Acceso de por vida</li></ul><a class="btn" id="buy" href="'+MP_LINK+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Pagar '+PRECIO+'</a><p class="sub" style="margin:16px 0 0">¿Ya pagaste? Ingresá tu código:</p><input id="cod" placeholder="Código de acceso" maxlength="20" aria-label="Código de acceso"><p class="sub" id="cm" role="status"></p><button class="btn" id="ok" style="width:100%">Desbloquear</button><button class="ghost" id="no" style="width:100%">Ahora no</button>';
+  var msg=encodeURIComponent('Hola, hice la transferencia por el curso Casa en Orden ('+PRECIO+'). Te mando el comprobante.');
+  d.innerHTML='<h2>Desbloqueá el curso completo</h2><p class="sub">Los módulos 2 al 5 están incluidos en tu acceso completo.</p><ul class="ft"><li>14 lecciones con prácticas</li><li>Plan de 30 días</li><li>Certificado final</li><li>Acceso de por vida</li></ul><a class="btn" id="buy" href="'+MP_LINK+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Pagar '+PRECIO+' con Mercado Pago</a><p class="sub" style="margin:16px 0 6px"><b>O pagá por transferencia</b> a este alias:</p><div class="row" style="margin-bottom:8px"><b style="flex:1;overflow-wrap:anywhere">'+ALIAS+'</b><button class="btn" id="ca" type="button">Copiar</button></div><a class="btn out" href="https://wa.me/'+WSP+'?text='+msg+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Enviar comprobante por WhatsApp</a><p class="sub" style="margin:16px 0 0">¿Ya pagaste? Ingresá tu código:</p><input id="cod" placeholder="Código de acceso" maxlength="20" aria-label="Código de acceso"><p class="sub" id="cm" role="status"></p><button class="btn" id="ok" style="width:100%">Desbloquear</button><button class="ghost" id="no" style="width:100%">Ahora no</button>';
   d.showModal();
+  document.getElementById('ca').onclick=function(){var b=this;try{navigator.clipboard.writeText(ALIAS).then(function(){b.textContent='Copiado ✓'},function(){b.textContent='Copiá a mano'})}catch(e){b.textContent='Copiá a mano'}};
   document.getElementById('ok').onclick=function(){
     var c=document.getElementById('cod').value.trim().toUpperCase();
     if(CODIGOS.indexOf(c)>-1){S.pro=true;save();d.close();render()}
