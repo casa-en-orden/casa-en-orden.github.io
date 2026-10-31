@@ -129,12 +129,18 @@ function paywall(){
   };
   document.getElementById('no').onclick=function(){d.close()};
 }
+function instalar(){
+  var d=document.getElementById('dlg');
+  d.innerHTML='<h2>Instalá el curso en tu celular</h2><p class="sub">Así lo abrís con un toque desde la pantalla de inicio, como una app. Tu progreso queda guardado en ese celular.</p><h2 style="font-size:1rem">Android (Chrome)</h2><ol class="ft"><li>Abrí el curso en <b>Chrome</b>.</li><li>Tocá los <b>tres puntitos</b> de arriba a la derecha.</li><li>Elegí <b>Instalar aplicación</b> o <b>Agregar a la pantalla principal</b>.</li><li>Confirmá con <b>Instalar</b> o <b>Agregar</b>.</li></ol><h2 style="font-size:1rem">iPhone (Safari)</h2><ol class="ft"><li>Abrí el curso en <b>Safari</b> (no en otro navegador).</li><li>Tocá el botón <b>Compartir</b> (el cuadrado con una flecha hacia arriba).</li><li>Bajá y elegí <b>Agregar a pantalla de inicio</b>.</li><li>Tocá <b>Agregar</b>.</li></ol><p class="sub">Si abriste el link desde WhatsApp, primero tocá <b>Abrir en el navegador</b> y después seguí los pasos.</p><button class="btn" id="cl" style="width:100%">Entendido</button>';
+  d.showModal();
+  document.getElementById('cl').onclick=function(){d.close()};
+}
 var HERO='<svg class="hero" viewBox="0 0 400 210" role="img" aria-label="Estante ordenado con una planta y una canasta"><rect width="400" height="210" rx="26" fill="var(--sand)"/><rect x="28" y="26" width="64" height="150" rx="6" fill="#F4F1E6" stroke="#D9D3BC" stroke-width="3"/><path d="M60 26v150M28 100h64" stroke="#D9D3BC" stroke-width="3"/><rect x="150" y="30" width="200" height="150" rx="6" fill="#FBF9F2" stroke="#D9D3BC" stroke-width="4"/><path d="M150 105h200" stroke="#D9D3BC" stroke-width="4"/><rect x="170" y="62" width="64" height="43" rx="5" fill="#B88F5B"/><path d="M170 74h64M170 86h64M186 62v43M202 62v43M218 62v43" stroke="#9C773F" stroke-width="2"/><rect x="250" y="88" width="70" height="17" rx="2" fill="#7FA38A"/><rect x="256" y="72" width="60" height="16" rx="2" fill="#E7C98B"/><rect x="262" y="57" width="52" height="15" rx="2" fill="#F1EFE6" stroke="#D9D3BC"/><rect x="176" y="148" width="40" height="32" rx="6" fill="#F4F1E6" stroke="#D9D3BC" stroke-width="3"/><path d="M196 148c-22-6-30-24-26-40 18 2 28 18 26 40zM196 148c6-24 20-34 34-34 2 18-10 30-34 34z" fill="#4F8A5B"/><rect x="262" y="140" width="64" height="40" rx="5" fill="#B88F5B"/><path d="M262 154h64M262 166h64" stroke="#9C773F" stroke-width="2"/><path d="M30 190q12-16 26 0M42 190q-4-26 10-36" fill="none" stroke="#4F8A5B" stroke-width="5" stroke-linecap="round"/></svg>';
 function home(){
   var n=count(),t=total(),nx=nextUndone();
   var h='<span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
   h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><p class="meta">15 minutos por día · a tu ritmo · acceso de por vida</p>'+HERO;
-  h+='<div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
+  h+='<button class="btn out" id="ins" type="button" style="width:100%;margin-top:18px">📲 Cómo instalar el curso en tu celular</button><div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
   M.forEach(function(m,mi){
     var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;
     h+='<section class="mod"><header><div><h2>'+(mi+1)+'. '+m.t+'</h2><small>'+dn+' de '+m.l.length+' lecciones</small></div>'+(locked(mi)?'<span class="tag">Completo</span>':'')+'</header>';
@@ -194,6 +200,7 @@ function render(){
   document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras})[S.v]();
   document.getElementById('tabs').innerHTML=[['home','Curso'],['tareas','Mis tareas'],['compras','Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
   var f;
+  if(f=document.getElementById('ins'))f.onclick=instalar;
   if(f=document.getElementById('vp'))f.onclick=function(){document.getElementById('prog').scrollIntoView({behavior:'smooth'})};
   document.querySelectorAll('[data-tv]').forEach(function(b){b.onclick=function(){S.v=b.dataset.tv;ED=null;save();render();window.scrollTo(0,0)}});
   if(f=document.getElementById('ft'))f.onsubmit=function(e){e.preventDefault();var v=document.getElementById('tn').value.trim();if(v){S.tasks.push({id:Date.now(),g:document.getElementById('tg').value,n:v,c:0});save();render()}};
