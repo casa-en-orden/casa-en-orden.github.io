@@ -156,7 +156,9 @@ var GRATIS=false;
 var MP_LINK='https://mpago.la/33G1C9c';
 var PRECIO='$9.999';
 var PRECIO_TRANSF='$9.499'; /* 5% de descuento */
-var CODIGOS=['CASA-4F7K','CASA-9XQ2','CASA-L3M8','CASA-T6W1','CASA-B8R5','CASA-H2N9','CASA-Z5C4','CASA-K7D3','CASA-P1V6','CASA-Y9J2'];
+var APPS_URL='https://script.google.com/macros/s/AKfycbwGpBaOpMMx1aubdNW08MJ8579zRlB76dxxaeJ5XVONvmLIPSbEX6YnJlBezMsfuY-v/exec';
+var _dv=null;
+function devId(){try{var d=localStorage.getItem('ceo_dev');if(!d){d=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('ceo_dev',d)}return d}catch(e){if(!_dv)_dv='t'+Math.random().toString(36).slice(2);return _dv}}
 var ALIAS='quepin.quepon';
 var WSP='5493584831449';
 /* ================================== */
@@ -170,9 +172,16 @@ function paywall(){
   d.showModal();
   document.getElementById('ca').onclick=function(){var b=this;try{navigator.clipboard.writeText(ALIAS).then(function(){b.textContent='Copiado ✓'},function(){b.textContent='Copiá a mano'})}catch(e){b.textContent='Copiá a mano'}};
   document.getElementById('ok').onclick=function(){
-    var c=document.getElementById('cod').value.trim().toUpperCase();
-    if(CODIGOS.indexOf(c)>-1){S.pro=true;save();d.close();render()}
-    else document.getElementById('cm').textContent='Ese código no es válido. Revisalo e intentá de nuevo.';
+    var c=document.getElementById('cod').value.trim().toUpperCase(),cm=document.getElementById('cm'),btn=this;
+    if(!c){cm.textContent='Escribí tu código.';return}
+    btn.disabled=true;cm.textContent='Verificando…';
+    fetch(APPS_URL+'?code='+encodeURIComponent(c)+'&dev='+encodeURIComponent(devId()))
+      .then(function(r){return r.json()})
+      .then(function(j){
+        if(j&&j.ok){S.pro=true;save();d.close();render()}
+        else{btn.disabled=false;cm.textContent=(j&&j.msg==='usado')?'Ese código ya fue usado en otro dispositivo. Escribinos por WhatsApp.':'Ese código no es válido. Revisalo e intentá de nuevo.'}
+      })
+      .catch(function(){btn.disabled=false;cm.textContent='No pude verificar el código. Revisá tu conexión e intentá de nuevo.'});
   };
   document.getElementById('no').onclick=function(){d.close()};
 }
