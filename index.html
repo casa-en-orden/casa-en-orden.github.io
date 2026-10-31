@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa en Orden – Curso para organizar y limpiar tu casa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600;1,9..144,800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#FAF8F0;--card:#FFFEFA;--ink:#14291B;--mute:#5C6B60;--line:#E4E0CD;--brand:#35603F;--onbrand:#fff;--hi:#DDEAD7;--sand:#E9E4D2;--ok:#35603F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101A14;--card:#17241B;--ink:#EDEBDD;--mute:#A3B2A6;--line:#28392D;--brand:#8FC29A;--onbrand:#0F1A13;--hi:#24382A;--sand:#1E2D23;--ok:#8FC29A}}
+:root[data-theme="dark"]{--bg:#101A14;--card:#17241B;--ink:#EDEBDD;--mute:#A3B2A6;--line:#28392D;--brand:#8FC29A;--onbrand:#0F1A13;--hi:#24382A;--sand:#1E2D23;--ok:#8FC29A}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 'DM Sans',system-ui,sans-serif}
+main{max-width:600px;margin:0 auto;padding:22px 20px 120px}
+h1,h2,.cert .n,dialog h2{font-family:'Fraunces',Georgia,'Times New Roman',serif;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2rem,9vw,2.9rem);font-weight:800;line-height:1.06}
+h1 em{font-style:italic;color:var(--brand)}
+h2{font-size:1.15rem;font-weight:700;line-height:1.2}
+.sub{color:var(--mute);margin:8px 0 16px}
+.pill{display:inline-block;background:var(--hi);color:var(--ink);border-radius:999px;padding:9px 18px;font-size:.95rem;margin:4px 0 22px}
+.lead{color:var(--mute);font-size:1.15rem;line-height:1.6;margin:18px 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 18px}
+.meta{color:var(--mute);font-size:.95rem;margin:0}
+.hero{display:block;width:100%;height:auto;margin:26px 0 8px}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.btn{background:var(--brand);color:var(--onbrand);padding:15px 28px;font-weight:600;box-shadow:0 10px 22px rgba(53,96,63,.22)}
+.btn.out{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.ghost{background:transparent;color:var(--mute);padding:8px 0;font-weight:500;border-radius:8px}
+.prog{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;margin:26px 0 18px;display:flex;flex-direction:column;gap:10px}
+.bar{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:8px}.bar i{display:block;height:100%;background:var(--brand);border-radius:8px}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:22px;margin-bottom:14px;overflow:hidden}
+.mod header{padding:16px 18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.mod header small{color:var(--mute)}
+.les{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:transparent;color:var(--ink);padding:14px 18px;border-top:1px solid var(--line);border-radius:0}
+.les .dot{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);flex:none;display:grid;place-items:center;font-size:.8rem;font-weight:700;color:var(--mute)}
+.les.on .dot{background:var(--brand);border-color:var(--brand);color:var(--onbrand)}
+.les small{color:var(--mute);display:block}
+.tag{background:var(--hi);color:var(--ink);font-size:.75rem;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.task{border-left:5px solid var(--brand);background:var(--card);border-radius:0 16px 16px 0;padding:14px 18px;margin:22px 0}
+.task p{margin:4px 0 0}
+.les-body p{margin:0 0 14px}
+input{font:inherit;padding:13px 16px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);width:100%;margin:8px 0 14px}
+.cert{border:3px double var(--brand);border-radius:12px;background:var(--card);padding:36px 20px;text-align:center;margin:14px 0 20px}
+.cert .n{font-size:1.9rem;font-weight:800;margin:10px 0;overflow-wrap:anywhere}
+dialog{border:0;border-radius:24px;padding:24px;max-width:92vw;width:380px;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+ul.ft{padding-left:18px;margin:8px 0 14px}
+.tabs{position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:999px;display:flex;gap:4px;padding:6px;box-shadow:0 8px 28px rgba(20,41,27,.14);z-index:5}
+.tabs button{flex:1;background:transparent;color:var(--mute);padding:11px 4px;font-weight:600;font-size:.95rem}
+.tabs button[aria-current=page]{background:var(--brand);color:var(--onbrand)}
+.row{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 8px 6px 16px;margin-bottom:10px}
+.row label{display:flex;align-items:center;gap:12px;flex:1;min-height:46px;cursor:pointer}
+.row input[type=checkbox]{width:26px;height:26px;accent-color:var(--brand);flex:none;margin:0}
+.row input[type=text]{margin:0}
+.row .btn{padding:11px 18px;box-shadow:none}
+.row.on span{text-decoration:line-through;color:var(--mute)}
+.x{background:transparent;color:var(--mute);padding:8px 10px;border-radius:10px}
+.empty{color:var(--mute);padding:20px;text-align:center;border:1.5px dashed var(--line);border-radius:18px;margin-bottom:12px}
+form.add{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+form.add input{margin:0;flex:1;min-width:0}
+form.add .btn{padding:12px 20px;box-shadow:none}
+form.add select{font:inherit;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);flex:1;min-width:0}
+#tn{flex:1 1 100%}
+.mic{width:50px;flex:none;background:var(--hi)!important;color:var(--ink)!important;font-size:1.2rem;padding:0!important}
+.mic.rec{background:#B5452F!important;color:#fff!important}
+.z{display:block;color:var(--mute);font-size:.8rem}
+.ghost+.ghost{margin-left:16px}
+@media print{.noprint{display:none!important}body{background:#fff}.cert{border-color:#000}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<nav class="tabs noprint" id="tabs"></nav>
+<dialog id="dlg"></dialog>
+<script>
+var M=[
+{t:"Empezá sin agobio",free:1,l:[
+["La regla de los 15 minutos",5,"El desorden no se vence en un fin de semana heroico, sino con ratos cortos. Poné un temporizador de 15 minutos y trabajá un solo rincón. Cuando suene, pará.\nParar a tiempo es parte del método: así mañana vas a querer volver.","Elegí un cajón o un estante y trabajá en él 15 minutos hoy."],
+["Tu mapa de la casa",7,"Dibujá o anotá las zonas: cocina, baño, dormitorios, living, entrada. Calificá cada una del 1 al 5 según cuánto te molesta.\nEmpezá por la entrada o la cocina: son las que más ves y las que más tiempo te ahorran.","Escribí tus zonas y ponele una nota a cada una. Marcá cuál va primero."],
+["Las cuatro cajas",8,"Tené a mano cuatro cajas o bolsas: Se queda, Se va (donar), Se tira y Otro lugar. Cada objeto va a una, sin quedarse a mitad de camino.\nVaciá las cajas el mismo día: lo que queda en el pasillo vuelve a la casa.","Llená las cuatro cajas con 10 objetos de una zona y sacá de la casa las de “Se va” y “Se tira”."]]},
+{t:"Limpieza que se mantiene",l:[
+["Rutina diaria de 10 minutos",6,"Una casa limpia se sostiene con poco, todos los días: hacer la cama, lavar los platos, limpiar la mesada y levantar lo que está fuera de lugar.\nAtá la rutina a algo que ya hacés, como el mate de la mañana o la cena.","Escribí tus cuatro tareas diarias y hacé la rutina completa hoy."],
+["Limpieza semanal por zonas",8,"En vez de limpiar todo en un día, asigná una zona a cada día: lunes baño, martes cocina, miércoles dormitorios, jueves polvo y pisos.\nVeinte minutos por zona alcanzan si la rutina diaria está al día.","Asigná una zona a cada día de la semana y ponela en tu calendario."],
+["Productos básicos y seguridad",7,"Con detergente neutro, vinagre, bicarbonato y un desengrasante resolvés casi todo. Menos productos, menos gasto y menos riesgo.\nNunca mezcles lavandina con vinagre, amoníaco ni otros limpiadores: se generan gases tóxicos. Ventilá siempre que uses productos fuertes.","Revisá tus productos de limpieza y apartá los que repiten función."]]},
+{t:"Cocina y baño",l:[
+["La cocina de arriba abajo",10,"Limpiá de arriba hacia abajo: alacenas y estantes primero, después la mesada y al final el piso. Lo que cae no ensucia lo que ya limpiaste.\nCerrá con la cocina y la pileta, que es lo que más se nota.","Despejá la mesada y dejá solo lo que usás todos los días."],
+["Baño sin esfuerzo",8,"Aplicá el producto al empezar y dejalo actuar unos minutos mientras hacés otra cosa. El tiempo hace el trabajo, no la fuerza.\nTerminá con el espejo y el piso. Un secador de vidrios en la ducha evita el sarro.","Limpiá el baño con la técnica de dejar actuar y cronometralo."]]},
+{t:"Dormitorios y placards",l:[
+["Placard por categorías",10,"Sacá todo y ponelo arriba de la cama. Probate lo dudoso y decidí: si no te queda o no lo usás, se va.\nVolvé a guardar por tipo y color, con el mismo tipo de percha.","Terminá una sección del placard: camisas, pantalones o abrigos."],
+["Cama y mesa de luz",5,"La mesa de luz guarda lo que usás de noche: el velador, un libro, el cargador y poco más. Todo lo demás tiene otro lugar.\nUna cama hecha cambia cómo se ve todo el cuarto.","Vaciá tu mesa de luz y devolvé solo lo que usás cada noche."],
+["Ropa de temporada",7,"Guardá lo que no vas a usar en cajas transparentes y etiquetadas. Lavá todo antes de guardarlo.\nAnotá en la caja la fecha en que la vas a abrir de nuevo.","Prepará una caja de ropa de temporada y etiquetala."]]},
+{t:"Hábitos para que dure",l:[
+["Uno entra, uno sale",5,"Cada objeto nuevo que entra tiene que sacar a uno parecido. Así la casa no se vuelve a llenar.\nEs la regla más simple y la que más protege tu trabajo.","Aplicá la regla en la próxima compra que hagas."],
+["Reset semanal de 20 minutos",6,"Un día fijo, dedicá 20 minutos a devolver todo a su lugar, vaciar la bandeja de papeles y preparar la semana.\nSi lo hacés siempre el mismo día, se vuelve hábito.","Elegí tu día y hora de reset y programalo."],
+["Tu plan de 30 días",8,"Juntá lo aprendido: una zona por semana, rutina diaria y reset semanal. Un ambiente a la vez.\nNo busques la perfección; buscá que cada semana esté un poco mejor.","Escribí tu plan de 4 semanas, una zona por semana."]]}
+];
+var S={done:{},pro:false,name:'',v:'home',m:0,l:0,tasks:[],shop:[]};
+var TRAD={'Limpiar la encimera':'Limpiar la mesada','Limpiar la estufa':'Limpiar la cocina y las hornallas','Limpiar el fregadero':'Limpiar la pileta','Limpiar el refrigerador':'Limpiar la heladera','Barrer y trapear el piso':'Barrer y lavar el piso','Limpiar el lavabo y el espejo':'Limpiar el lavatorio y el espejo','Limpiar la regadera o bañera':'Limpiar la ducha o la bañera','Trapear el piso':'Lavar el piso','Tender las camas':'Hacer las camas','Ordenar el buró':'Ordenar la mesa de luz','Aspirar o barrer':'Pasar la aspiradora o barrer','Sacudir el polvo':'Sacar el polvo','Acomodar cojines y mantas':'Acomodar almohadones y frazadas','Aspirar el sofá y la alfombra':'Pasar la aspiradora por el sillón y la alfombra','Ventilar las habitaciones':'Ventilar los ambientes'};
+function migrar(){var ch=0;(S.tasks||[]).forEach(function(t){if(t.g==='Sala y comedor'){t.g='Living y comedor';ch=1}if(TRAD[t.n]){t.n=TRAD[t.n];ch=1}else{var n=t.n.replace(/encimera/gi,'mesada').replace(/refrigerador/gi,'heladera').replace(/fregadero/gi,'pileta').replace(/clóset|closet/gi,'placard').replace(/buró/gi,'mesa de luz');if(n!==t.n){t.n=n;ch=1}}});if(ch)save()}
+function load(){try{var r=localStorage.getItem('ceo');if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}migrar()}
+function save(){try{localStorage.setItem('ceo',JSON.stringify(S))}catch(e){}}
+load();
+function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
+function total(){return M.reduce(function(a,m){return a+m.l.length},0)}
+function count(){return Object.keys(S.done).length}
+/* ===== CONFIGURÁ ACÁ TU COBRO ===== */
+var GRATIS=false;
+var MP_LINK='https://mpago.la/33G1C9c';
+var PRECIO='$9999';
+var CODIGOS=['CASA-4F7K','CASA-9XQ2','CASA-L3M8','CASA-T6W1','CASA-B8R5','CASA-H2N9','CASA-Z5C4','CASA-K7D3','CASA-P1V6','CASA-Y9J2'];
+/* ================================== */
+function locked(m){return !GRATIS&&!M[m].free&&!S.pro}
+function nextUndone(){for(var m=0;m<M.length;m++)for(var l=0;l<M[m].l.length;l++)if(!S.done[m+'-'+l])return[m,l];return null}
+function go(m,l){if(locked(m)){paywall();return}S.v='lesson';S.m=m;S.l=l;save();render();window.scrollTo(0,0)}
+function paywall(){
+  var d=document.getElementById('dlg');
+  d.innerHTML='<h2>Desbloqueá el curso completo</h2><p class="sub">Los módulos 2 al 5 están incluidos en tu acceso completo.</p><ul class="ft"><li>14 lecciones con prácticas</li><li>Plan de 30 días</li><li>Certificado final</li><li>Acceso de por vida</li></ul><a class="btn" id="buy" href="'+MP_LINK+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Pagar '+PRECIO+'</a><p class="sub" style="margin:16px 0 0">¿Ya pagaste? Ingresá tu código:</p><input id="cod" placeholder="Código de acceso" maxlength="20" aria-label="Código de acceso"><p class="sub" id="cm" role="status"></p><button class="btn" id="ok" style="width:100%">Desbloquear</button><button class="ghost" id="no" style="width:100%">Ahora no</button>';
+  d.showModal();
+  document.getElementById('ok').onclick=function(){
+    var c=document.getElementById('cod').value.trim().toUpperCase();
+    if(CODIGOS.indexOf(c)>-1){S.pro=true;save();d.close();render()}
+    else document.getElementById('cm').textContent='Ese código no es válido. Revisalo e intentá de nuevo.';
+  };
+  document.getElementById('no').onclick=function(){d.close()};
+}
+var HERO='<svg class="hero" viewBox="0 0 400 210" role="img" aria-label="Estante ordenado con una planta y una canasta"><rect width="400" height="210" rx="26" fill="var(--sand)"/><rect x="28" y="26" width="64" height="150" rx="6" fill="#F4F1E6" stroke="#D9D3BC" stroke-width="3"/><path d="M60 26v150M28 100h64" stroke="#D9D3BC" stroke-width="3"/><rect x="150" y="30" width="200" height="150" rx="6" fill="#FBF9F2" stroke="#D9D3BC" stroke-width="4"/><path d="M150 105h200" stroke="#D9D3BC" stroke-width="4"/><rect x="170" y="62" width="64" height="43" rx="5" fill="#B88F5B"/><path d="M170 74h64M170 86h64M186 62v43M202 62v43M218 62v43" stroke="#9C773F" stroke-width="2"/><rect x="250" y="88" width="70" height="17" rx="2" fill="#7FA38A"/><rect x="256" y="72" width="60" height="16" rx="2" fill="#E7C98B"/><rect x="262" y="57" width="52" height="15" rx="2" fill="#F1EFE6" stroke="#D9D3BC"/><rect x="176" y="148" width="40" height="32" rx="6" fill="#F4F1E6" stroke="#D9D3BC" stroke-width="3"/><path d="M196 148c-22-6-30-24-26-40 18 2 28 18 26 40zM196 148c6-24 20-34 34-34 2 18-10 30-34 34z" fill="#4F8A5B"/><rect x="262" y="140" width="64" height="40" rx="5" fill="#B88F5B"/><path d="M262 154h64M262 166h64" stroke="#9C773F" stroke-width="2"/><path d="M30 190q12-16 26 0M42 190q-4-26 10-36" fill="none" stroke="#4F8A5B" stroke-width="5" stroke-linecap="round"/></svg>';
+function home(){
+  var n=count(),t=total(),nx=nextUndone();
+  var h='<span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
+  h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><p class="meta">15 minutos por día · a tu ritmo · acceso de por vida</p>'+HERO;
+  h+='<div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
+  M.forEach(function(m,mi){
+    var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;
+    h+='<section class="mod"><header><div><h2>'+(mi+1)+'. '+m.t+'</h2><small>'+dn+' de '+m.l.length+' lecciones</small></div>'+(locked(mi)?'<span class="tag">Completo</span>':'')+'</header>';
+    m.l.forEach(function(l,li){var d=S.done[mi+'-'+li];
+      h+='<button class="les'+(d?' on':'')+'" data-m="'+mi+'" data-l="'+li+'"><span class="dot">'+(d?'✓':li+1)+'</span><span><b>'+l[0]+'</b><small>'+l[1]+' min</small></span></button>'});
+    if(dn)h+='<button class="les" data-rm="'+mi+'" style="color:var(--mute);font-weight:600">Destildar este módulo para repetirlo</button>';
+    h+='</section>'});
+  return h}
+function lesson(){
+  var m=M[S.m],ls=m.l[S.l],d=S.done[S.m+'-'+S.l];
+  return '<button class="ghost" id="back">← Temario</button><p class="sub">Módulo '+(S.m+1)+' · '+m.t+' · '+ls[1]+' min</p><h1>'+ls[0]+'</h1><div class="les-body" style="margin-top:16px">'+ls[2].split('\n').map(function(p){return'<p>'+p+'</p>'}).join('')+'</div><div class="task"><b>Práctica</b><p>'+ls[3]+'</p><button class="ghost" id="addt" type="button">+ Agregar a mis tareas</button></div><button class="btn" id="fin" style="width:100%">'+(d?'Siguiente lección':'Hice la práctica. Completar')+'</button>'+(d?'<button class="ghost" id="undo" style="width:100%;margin-top:6px">Destildar esta lección para repetirla</button>':'')}
+function cert(){
+  if(count()<total()){S.v='home';return home()}
+  return '<div class="noprint"><button class="ghost" id="back">← Temario</button><h1>¡Lo lograste!</h1><p class="sub">Escribí tu nombre para tu certificado.</p><input id="nm" value="'+esc(S.name)+'" placeholder="Tu nombre" maxlength="40" aria-label="Tu nombre"></div><div class="cert"><p>Certificado de finalización</p><div class="n">'+esc(S.name||'Tu nombre')+'</div><p>completó el curso <b>Casa en Orden</b><br>'+new Date().toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'})+'</p></div><button class="btn noprint" id="prt" style="width:100%">Imprimir certificado</button>'}
+var ED=null,VMSG='';
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+function escA(s){return esc(s).replace(/'/g,'&#39;')}
+function tareas(){
+  var dn=S.tasks.filter(function(t){return t.c}).length;
+  var h=`<h1>Mis tareas</h1><p class='sub'>Anotá lo que vas haciendo. Tocá ✎ para editar una tarea, o 🎤 para dictar una.</p>${S.tasks.length?`<b>${dn} de ${S.tasks.length} hechas</b><div class='bar'><i style='width:${Math.round(dn/S.tasks.length*100)}%'></i></div>`:''}<form class='add' id='ft'><input type='text' id='tn' placeholder='Ej. Ordenar el placard' maxlength='80' aria-label='Nueva tarea'><select id='tg' aria-label='Zona'><option value=''>Sin zona</option>${ZONAS.map(function(z){return `<option>${z}</option>`}).join('')}</select><button type='button' class='btn mic' id='mict' aria-label='Dictar una tarea con la voz'>🎤</button><button class='btn' type='submit'>Agregar</button></form><p class='sub' id='vm' role='status'>${esc(VMSG)}</p>`;
+  if(!S.tasks.length)h+=`<div class='empty'>Todavía no tenés tareas. Agregá la primera o tocá “Agregar a mis tareas” dentro de una lección.</div>`;
+  S.tasks.forEach(function(t){
+    if(ED===t.id)h+=`<div class='row'><input type='text' id='et' value='${escA(t.n)}' maxlength='80' aria-label='Editar tarea'><button class='btn' data-sv='1'>Guardar</button></div>`;
+    else h+=`<div class='row${t.c?' on':''}'><label><input type='checkbox' data-tc='${t.id}'${t.c?' checked':''}><span>${esc(t.n)}${t.g?`<small class='z'>${esc(t.g)}</small>`:''}</span></label><button class='x' data-ed='${t.id}' aria-label='Editar'>✎</button><button class='x' data-td='${t.id}' aria-label='Quitar'>✕</button></div>`});
+  if(!S.tasks.length)h+=`<button class='btn' id='pre' style='width:100%;margin-bottom:10px'>Cargar lista de la casa (26 tareas)</button>`;
+  else if(!S.tasks.some(function(t){return t.g}))h+=`<button class='ghost' id='pre'>Agregar lista de la casa</button>`;
+  if(S.tasks.length)h+=`<button class='ghost' id='unt'>Destildar todo</button>`;
+  if(dn)h+=`<button class='ghost' id='tcl'>Quitar las hechas (${dn})</button>`;
+  return h}
+var ZONAS=['Cocina','Baño','Dormitorios','Living y comedor','Toda la casa'];
+var DEF={'Cocina':['Lavar los platos','Limpiar la mesada','Limpiar la cocina y las hornallas','Limpiar la pileta','Sacar la basura','Limpiar la heladera','Barrer y lavar el piso'],'Baño':['Limpiar el inodoro','Limpiar el lavatorio y el espejo','Limpiar la ducha o la bañera','Cambiar las toallas','Lavar el piso'],'Dormitorios':['Hacer las camas','Cambiar las sábanas','Guardar la ropa','Ordenar la mesa de luz','Pasar la aspiradora o barrer'],'Living y comedor':['Sacar el polvo','Acomodar almohadones y frazadas','Despejar la mesa','Pasar la aspiradora por el sillón y la alfombra'],'Toda la casa':['Lavar la ropa','Doblar y guardar la ropa','Sacar la basura y el reciclaje','Regar las plantas','Ventilar los ambientes']};
+function cargarLista(){var n=0;ZONAS.forEach(function(z){DEF[z].forEach(function(x){S.tasks.push({id:Date.now()+(n++),g:z,n:x,c:0})})});save();render()}
+function saveEd(){var t=S.tasks.find(function(x){return x.id===ED}),el=document.getElementById('et'),v=el?el.value.trim():'';if(t&&v)t.n=v;ED=null;save();render()}
+function compras(){
+  var dn=S.shop.filter(function(t){return t.c}).length;
+  var h=`<h1>Compras</h1><p class='sub'>Anotá lo que se acaba o falta. Escribí, o tocá 🎤 y decí, por ejemplo: “detergente, bolsas de residuos y esponjas”.</p><form class='add' id='fs'><input type='text' id='sn' placeholder='Ej. Detergente' maxlength='60' aria-label='Nuevo material'><button type='button' class='btn mic' id='mic' aria-label='Dictar con la voz'>🎤</button><button class='btn' type='submit'>Agregar</button></form><p class='sub' id='vm' role='status'>${esc(VMSG)}</p>`;
+  if(!S.shop.length)h+=`<div class='empty'>La lista está vacía. Anotá lo que falte.</div>`;
+  S.shop.forEach(function(t){h+=`<div class='row${t.c?' on':''}'><label><input type='checkbox' data-sc='${t.id}'${t.c?' checked':''}><span>${esc(t.n)}</span></label><button class='x' data-sd='${t.id}' aria-label='Quitar'>✕</button></div>`});
+  if(S.shop.length)h+=`<button class='ghost' id='cpy'>Copiar lista</button>`;
+  if(dn)h+=`<button class='ghost' id='scl'>Quitar lo comprado (${dn})</button>`;
+  return h}
+function addShop(txt,voice){
+  var n=0;(voice?txt.split(/,| y /i):txt.split(',')).forEach(function(p){p=p.replace(/[.]$/,'').trim();if(p){S.shop.push({id:Date.now()+(n++),n:cap(p),c:0})}});
+  return n}
+function addTask(txt){var n=0,g=(document.getElementById('tg')||{}).value||'';txt.split(/,| y luego | y después | luego | después /i).forEach(function(p){p=p.replace(/[.]$/,'').trim();if(p){S.tasks.push({id:Date.now()+(n++),g:g,n:cap(p),c:0})}})}
+function setVm(t){VMSG=t;var e=document.getElementById('vm');if(e)e.textContent=t}
+function dictar(dest){
+  var R=window.SpeechRecognition||window.webkitSpeechRecognition,tip='Si no funciona acá, usá el micrófono del teclado de tu celular.';
+  if(!R){setVm('Tu navegador no permite dictado. '+tip);return}
+  var r=new R(),m=document.getElementById(dest==='tasks'?'mict':'mic');
+  r.lang='es-AR';r.interimResults=false;r.maxAlternatives=1;
+  r.onresult=function(e){var t=e.results[0][0].transcript;if(dest==='tasks')addTask(t);else addShop(t,true);VMSG='Agregué: '+t;save();render()};
+  r.onerror=function(){setVm('No pude escuchar. '+tip)};
+  r.onend=function(){if(m)m.classList.remove('rec')};
+  try{r.start();m.classList.add('rec');setVm('Escuchando… hablá ahora.')}catch(e){setVm('No pude abrir el micrófono. '+tip)}}
+function render(){
+  document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras})[S.v]();
+  document.getElementById('tabs').innerHTML=[['home','Curso'],['tareas','Mis tareas'],['compras','Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
+  var f;
+  if(f=document.getElementById('vp'))f.onclick=function(){document.getElementById('prog').scrollIntoView({behavior:'smooth'})};
+  document.querySelectorAll('[data-tv]').forEach(function(b){b.onclick=function(){S.v=b.dataset.tv;ED=null;save();render();window.scrollTo(0,0)}});
+  if(f=document.getElementById('ft'))f.onsubmit=function(e){e.preventDefault();var v=document.getElementById('tn').value.trim();if(v){S.tasks.push({id:Date.now(),g:document.getElementById('tg').value,n:v,c:0});save();render()}};
+  document.querySelectorAll('[data-tc]').forEach(function(i){i.onchange=function(){var t=S.tasks.find(function(x){return x.id==i.dataset.tc});t.c=i.checked?1:0;save();render()}});
+  document.querySelectorAll('[data-td]').forEach(function(b){b.onclick=function(){S.tasks=S.tasks.filter(function(x){return x.id!=b.dataset.td});save();render()}});
+  document.querySelectorAll('[data-ed]').forEach(function(b){b.onclick=function(){ED=+b.dataset.ed;render();var el=document.getElementById('et');if(el)el.focus()}});
+  if(f=document.getElementById('et'))f.onkeydown=function(e){if(e.key==='Enter')saveEd()};
+  document.querySelectorAll('[data-sv]').forEach(function(b){b.onclick=saveEd});
+  if(f=document.getElementById('tcl'))f.onclick=function(){S.tasks=S.tasks.filter(function(x){return !x.c});save();render()};
+  if(f=document.getElementById('undo'))f.onclick=function(){delete S.done[S.m+'-'+S.l];save();render()};
+  if(f=document.getElementById('rst'))f.onclick=function(){if(this.dataset.ok){S.done={};S.v='home';save();render()}else{this.dataset.ok=1;this.textContent='Tocá de nuevo para destildar todo'}};
+  document.querySelectorAll('[data-rm]').forEach(function(b){b.onclick=function(){var m=+b.dataset.rm;M[m].l.forEach(function(x,i){delete S.done[m+'-'+i]});save();render()}});
+  if(f=document.getElementById('pre'))f.onclick=cargarLista;
+  if(f=document.getElementById('unt'))f.onclick=function(){S.tasks.forEach(function(t){t.c=0});save();render()};
+  if(f=document.getElementById('addt'))f.onclick=function(){S.tasks.push({id:Date.now(),n:M[S.m].l[S.l][3],c:0});save();this.textContent='Agregada ✓';this.disabled=true};
+  if(f=document.getElementById('fs'))f.onsubmit=function(e){e.preventDefault();var i=document.getElementById('sn');if(i.value.trim()){addShop(i.value,false);VMSG='';save();render()}};
+  if(f=document.getElementById('mic'))f.onclick=function(){dictar('shop')};
+  if(f=document.getElementById('mict'))f.onclick=function(){dictar('tasks')};
+  document.querySelectorAll('[data-sc]').forEach(function(i){i.onchange=function(){var t=S.shop.find(function(x){return x.id==i.dataset.sc});t.c=i.checked?1:0;save();render()}});
+  document.querySelectorAll('[data-sd]').forEach(function(b){b.onclick=function(){S.shop=S.shop.filter(function(x){return x.id!=b.dataset.sd});save();render()}});
+  if(f=document.getElementById('scl'))f.onclick=function(){S.shop=S.shop.filter(function(x){return !x.c});save();render()};
+  if(f=document.getElementById('cpy'))f.onclick=function(){var tx=S.shop.filter(function(x){return !x.c}).map(function(x){return '- '+x.n}).join(String.fromCharCode(10));try{navigator.clipboard.writeText(tx).then(function(){setVm('Lista copiada.')},function(){setVm('No pude copiar. Seleccioná y copiá a mano.')})}catch(e){setVm('No pude copiar.')}};
+  document.querySelectorAll('[data-m]').forEach(function(b){b.onclick=function(){go(+b.dataset.m,+b.dataset.l)}});
+  if(f=document.getElementById('cont'))f.onclick=function(){var n=nextUndone();go(n[0],n[1])};
+  if(f=document.getElementById('back'))f.onclick=function(){S.v='home';save();render()};
+  if(f=document.getElementById('cert'))f.onclick=function(){S.v='cert';save();render();window.scrollTo(0,0)};
+  if(f=document.getElementById('fin'))f.onclick=function(){
+    S.done[S.m+'-'+S.l]=1;
+    var m=S.m,l=S.l+1;if(l>=M[m].l.length){m++;l=0}
+    if(m>=M.length){S.v=count()>=total()?'cert':'home';save();render();window.scrollTo(0,0);return}
+    if(locked(m)){S.v='home';save();render();paywall();return}
+    go(m,l)};
+  if(f=document.getElementById('nm'))f.oninput=function(){S.name=this.value;save();var n=document.querySelector('.cert .n');if(n)n.textContent=this.value||'Tu nombre'};
+  if(f=document.getElementById('prt'))f.onclick=function(){window.print()};
+}
+render();
+</script>
+</body>
+</html>
