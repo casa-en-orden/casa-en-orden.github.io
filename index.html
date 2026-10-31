@@ -74,6 +74,46 @@ form.add select{font:inherit;padding:12px 14px;border:1.5px solid var(--line);bo
 .z{display:block;color:var(--mute);font-size:.8rem}
 .ghost+.ghost{margin-left:16px}
 @media print{.noprint{display:none!important}body{background:#fff}.cert{border-color:#000}}
+
+/* ===== Mejoras visuales ===== */
+:root{--brand2:#5E9C6B;--sh:0 8px 26px rgba(20,41,27,.08)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand2:#B7DFC0;--sh:0 8px 26px rgba(0,0,0,.3)}}
+body{background:radial-gradient(900px 420px at 50% -120px,var(--hi),transparent) no-repeat,var(--bg)}
+main>*{animation:up .45s ease both}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){main>*{animation:none}.btn,.les{transition:none!important}}
+.heroc{background:linear-gradient(165deg,var(--card),var(--hi));border:1px solid var(--line);border-radius:32px;padding:28px 22px 14px;box-shadow:0 22px 50px rgba(53,96,63,.14)}
+.heroc .pill{background:var(--card);border:1px solid var(--line)}
+.heroc .hero{border-radius:22px;margin:22px 0 6px}
+.btn{background-image:linear-gradient(135deg,var(--brand),var(--brand2));transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(53,96,63,.28)}
+.btn:active{transform:scale(.98)}
+.btn.out{background-image:none}
+.row .btn,form.add .btn{box-shadow:none}
+.mod{box-shadow:var(--sh)}
+.mod header{background:linear-gradient(90deg,var(--hi),transparent)}
+.mod h2{display:flex;align-items:center;gap:12px;font-size:1.2rem}
+.mn{display:inline-grid;place-items:center;width:34px;height:34px;flex:none;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:var(--onbrand);font-size:1rem}
+.les{transition:background .15s}
+.les:hover{background:var(--hi)}
+.les .dot{transition:all .2s}
+.les.on b{color:var(--mute)}
+.bar{height:10px}
+.bar i{background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .5s}
+.prog{box-shadow:var(--sh)}
+.les-body{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 20px 8px;box-shadow:var(--sh)}
+.les-body p{font-size:1.05rem;line-height:1.7}
+.task{background:linear-gradient(135deg,var(--hi),var(--card));border:1px solid var(--line);border-left:5px solid var(--brand);box-shadow:var(--sh)}
+.task b::before{content:'✨ '}
+.tag{background:var(--brand);color:var(--onbrand)}
+.tabs{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--card) 90%,transparent);box-shadow:0 12px 34px rgba(20,41,27,.2)}
+.tabs button{transition:background .2s,color .2s}
+.row{box-shadow:var(--sh)}
+input:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px var(--hi)}
+.cert{background:linear-gradient(160deg,var(--card),var(--hi));box-shadow:0 18px 44px rgba(53,96,63,.16);border-width:4px}
+dialog{box-shadow:0 30px 70px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(10,20,14,.55);backdrop-filter:blur(3px)}
+dialog h2{font-size:1.4rem;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -115,6 +155,7 @@ function count(){return Object.keys(S.done).length}
 var GRATIS=false;
 var MP_LINK='https://mpago.la/33G1C9c';
 var PRECIO='$9.999';
+var PRECIO_TRANSF='$9.499'; /* 5% de descuento */
 var CODIGOS=['CASA-4F7K','CASA-9XQ2','CASA-L3M8','CASA-T6W1','CASA-B8R5','CASA-H2N9','CASA-Z5C4','CASA-K7D3','CASA-P1V6','CASA-Y9J2'];
 var ALIAS='quepin.quepon';
 var WSP='5493584831449';
@@ -124,8 +165,8 @@ function nextUndone(){for(var m=0;m<M.length;m++)for(var l=0;l<M[m].l.length;l++
 function go(m,l){if(locked(m)){paywall();return}S.v='lesson';S.m=m;S.l=l;save();render();window.scrollTo(0,0)}
 function paywall(){
   var d=document.getElementById('dlg');
-  var msg=encodeURIComponent('Hola, hice la transferencia por el curso Casa en Orden ('+PRECIO+'). Te mando el comprobante.');
-  d.innerHTML='<h2>Desbloqueá el curso completo</h2><p class="sub">Los módulos 2 al 5 están incluidos en tu acceso completo.</p><ul class="ft"><li>14 lecciones con prácticas</li><li>Plan de 30 días</li><li>Certificado final</li><li>Acceso de por vida</li></ul><a class="btn" id="buy" href="'+MP_LINK+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Pagar '+PRECIO+' con Mercado Pago</a><p class="sub" style="margin:16px 0 6px"><b>O pagá por transferencia</b> a este alias:</p><div class="row" style="margin-bottom:8px"><b style="flex:1;overflow-wrap:anywhere">'+ALIAS+'</b><button class="btn" id="ca" type="button">Copiar</button></div><a class="btn out" href="https://wa.me/'+WSP+'?text='+msg+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Enviar comprobante por WhatsApp</a><p class="sub" style="margin:16px 0 0">¿Ya pagaste? Ingresá tu código:</p><input id="cod" placeholder="Código de acceso" maxlength="20" aria-label="Código de acceso"><p class="sub" id="cm" role="status"></p><button class="btn" id="ok" style="width:100%">Desbloquear</button><button class="ghost" id="no" style="width:100%">Ahora no</button>';
+  var msg=encodeURIComponent('Hola, hice la transferencia por el curso Casa en Orden ('+PRECIO_TRANSF+'). Te mando el comprobante.');
+  d.innerHTML='<h2>Desbloqueá el curso completo</h2><p class="sub">Los módulos 2 al 5 están incluidos en tu acceso completo.</p><ul class="ft"><li>14 lecciones con prácticas</li><li>Plan de 30 días</li><li>Certificado final</li><li>Acceso de por vida</li></ul><a class="btn" id="buy" href="'+MP_LINK+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Pagar '+PRECIO+' con Mercado Pago</a><p class="sub" style="margin:16px 0 6px"><b>O pagá por transferencia y tenés 5% de descuento:</b> <span class="tag">'+PRECIO_TRANSF+'</span> en vez de <s>'+PRECIO+'</s>. Transferí a este alias:</p><div class="row" style="margin-bottom:8px"><b style="flex:1;overflow-wrap:anywhere">'+ALIAS+'</b><button class="btn" id="ca" type="button">Copiar</button></div><a class="btn out" href="https://wa.me/'+WSP+'?text='+msg+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Enviar comprobante por WhatsApp</a><p class="sub" style="margin:16px 0 0">¿Ya pagaste? Ingresá tu código:</p><input id="cod" placeholder="Código de acceso" maxlength="20" aria-label="Código de acceso"><p class="sub" id="cm" role="status"></p><button class="btn" id="ok" style="width:100%">Desbloquear</button><button class="ghost" id="no" style="width:100%">Ahora no</button>';
   d.showModal();
   document.getElementById('ca').onclick=function(){var b=this;try{navigator.clipboard.writeText(ALIAS).then(function(){b.textContent='Copiado ✓'},function(){b.textContent='Copiá a mano'})}catch(e){b.textContent='Copiá a mano'}};
   document.getElementById('ok').onclick=function(){
@@ -141,15 +182,15 @@ function instalar(){
   d.showModal();
   document.getElementById('cl').onclick=function(){d.close()};
 }
-var HERO='<svg class="hero" viewBox="0 0 400 210" role="img" aria-label="Estante ordenado con una planta y una canasta"><rect width="400" height="210" rx="26" fill="var(--sand)"/><rect x="28" y="26" width="64" height="150" rx="6" fill="#F4F1E6" stroke="#D9D3BC" stroke-width="3"/><path d="M60 26v150M28 100h64" stroke="#D9D3BC" stroke-width="3"/><rect x="150" y="30" width="200" height="150" rx="6" fill="#FBF9F2" stroke="#D9D3BC" stroke-width="4"/><path d="M150 105h200" stroke="#D9D3BC" stroke-width="4"/><rect x="170" y="62" width="64" height="43" rx="5" fill="#B88F5B"/><path d="M170 74h64M170 86h64M186 62v43M202 62v43M218 62v43" stroke="#9C773F" stroke-width="2"/><rect x="250" y="88" width="70" height="17" rx="2" fill="#7FA38A"/><rect x="256" y="72" width="60" height="16" rx="2" fill="#E7C98B"/><rect x="262" y="57" width="52" height="15" rx="2" fill="#F1EFE6" stroke="#D9D3BC"/><rect x="176" y="148" width="40" height="32" rx="6" fill="#F4F1E6" stroke="#D9D3BC" stroke-width="3"/><path d="M196 148c-22-6-30-24-26-40 18 2 28 18 26 40zM196 148c6-24 20-34 34-34 2 18-10 30-34 34z" fill="#4F8A5B"/><rect x="262" y="140" width="64" height="40" rx="5" fill="#B88F5B"/><path d="M262 154h64M262 166h64" stroke="#9C773F" stroke-width="2"/><path d="M30 190q12-16 26 0M42 190q-4-26 10-36" fill="none" stroke="#4F8A5B" stroke-width="5" stroke-linecap="round"/></svg>';
+var HERO='<svg class="hero" viewBox="0 0 400 220" role="img" aria-label="Estantería ordenada con libros, una planta, una canasta y elementos de limpieza"><ellipse cx="200" cy="208" rx="150" ry="8" fill="#000" opacity=".08"/><rect x="56" y="24" width="288" height="176" rx="14" fill="var(--card)" stroke="#B98557" stroke-width="8"/><rect x="60" y="96" width="280" height="9" fill="#C99A64"/><rect x="60" y="164" width="280" height="9" fill="#C99A64"/><rect x="76" y="58" width="14" height="38" rx="2" fill="#E0894F"/><rect x="92" y="50" width="12" height="46" rx="2" fill="#5B9A68"/><rect x="106" y="62" width="16" height="34" rx="2" fill="#E8B659"/><path d="M156 72h34l-4 24h-26z" fill="#E0894F"/><path d="M173 72c-18-4-26-20-22-34 14 2 24 14 22 34z" fill="#4F8A5B"/><path d="M173 72c2-22 12-32 26-34 2 14-8 28-26 34z" fill="#5B9A68"/><path d="M173 72c-2-16 2-28 8-38 6 10 6 24-8 38z" fill="#3F7A4B"/><rect x="228" y="62" width="30" height="34" rx="6" fill="#BFE0C6"/><rect x="226" y="56" width="34" height="9" rx="3" fill="#E8B659"/><rect x="278" y="54" width="46" height="42" rx="4" fill="#FFF9EA" stroke="#C99A64" stroke-width="4"/><path d="M290 86l11-11 11 11v8h-22z" fill="#5B9A68"/><rect x="298" y="84" width="7" height="10" fill="#FFF9EA"/><path d="M80 164v-30h56v30z" fill="#D4A86A"/><path d="M80 143h56M80 153h56" stroke="#B98557" stroke-width="2"/><path d="M92 134c0-14 32-14 32 0" fill="none" stroke="#B98557" stroke-width="4"/><rect x="156" y="150" width="56" height="14" rx="3" fill="#FFF9EA" stroke="#D9D3BC"/><rect x="160" y="136" width="50" height="14" rx="3" fill="#BFE0C6"/><rect x="156" y="122" width="56" height="14" rx="3" fill="#F2C9A8"/><rect x="232" y="138" width="26" height="26" rx="6" fill="#7FB8C9"/><rect x="238" y="126" width="14" height="12" fill="#3F7A4B"/><path d="M236 127h22l8 5-8 3h-22z" fill="#3F7A4B"/><path d="M280 138h44l-5 26h-34z" fill="#E8B659"/><path d="M284 138c0-14 36-14 36 0" fill="none" stroke="#B98557" stroke-width="4"/><path d="M28 34q2 12 14 14-12 2-14 14-2-12-14-14 12-2 14-14z" fill="#E8B659"/><path d="M372 20q2 10 12 12-10 2-12 12-2-10-12-12 10-2 12-12z" fill="#5B9A68"/><path d="M376 120q2 10 12 12-10 2-12 12-2-10-12-12 10-2 12-12z" fill="#E8B659"/></svg>';
 function home(){
   var n=count(),t=total(),nx=nextUndone();
-  var h='<span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
-  h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><p class="meta">15 minutos por día · a tu ritmo · acceso de por vida</p>'+HERO;
+  var h='<div class="heroc"><span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
+  h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><p class="meta">15 minutos por día · a tu ritmo · acceso de por vida</p>'+HERO+'</div>';
   h+='<button class="btn out" id="ins" type="button" style="width:100%;margin-top:18px">📲 Cómo instalar el curso en tu celular</button><div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
   M.forEach(function(m,mi){
     var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;
-    h+='<section class="mod"><header><div><h2>'+(mi+1)+'. '+m.t+'</h2><small>'+dn+' de '+m.l.length+' lecciones</small></div>'+(locked(mi)?'<span class="tag">Completo</span>':'')+'</header>';
+    h+='<section class="mod"><header><div><h2><span class="mn">'+(mi+1)+'</span><span>'+m.t+'</span></h2><small>'+dn+' de '+m.l.length+' lecciones</small></div>'+(locked(mi)?'<span class="tag">🔒 Completo</span>':'')+'</header>';
     m.l.forEach(function(l,li){var d=S.done[mi+'-'+li];
       h+='<button class="les'+(d?' on':'')+'" data-m="'+mi+'" data-l="'+li+'"><span class="dot">'+(d?'✓':li+1)+'</span><span><b>'+l[0]+'</b><small>'+l[1]+' min</small></span></button>'});
     if(dn)h+='<button class="les" data-rm="'+mi+'" style="color:var(--mute);font-weight:600">Destildar este módulo para repetirlo</button>';
