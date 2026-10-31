@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Casa en Orden">
 <title>Casa en Orden – Curso para organizar y limpiar tu casa</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600;1,9..144,800&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
 <style>
 :root{--bg:#FAF8F0;--card:#FFFEFA;--ink:#14291B;--mute:#5C6B60;--line:#E4E0CD;--brand:#35603F;--onbrand:#fff;--hi:#DDEAD7;--sand:#E9E4D2;--ok:#35603F;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -114,6 +114,33 @@ input:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px var(--hi
 dialog{box-shadow:0 30px 70px rgba(0,0,0,.35)}
 dialog::backdrop{background:rgba(10,20,14,.55);backdrop-filter:blur(3px)}
 dialog h2{font-size:1.4rem;margin-bottom:6px}
+
+/* ===== Estilo tipo anuncio ===== */
+:root{--bg:#EFF8F2;--card:#fff;--ink:#12324A;--mute:#5B7183;--line:#D9EADF;--brand:#10925A;--brand2:#27B173;--onbrand:#fff;--hi:#E2F4E8;--sand:#E2F4E8;--gold:#FFC62E;--gold2:#FFDD6B}
+body{font-family:'Roboto',system-ui,sans-serif}
+h1,h2,.cert .n,dialog h2{font-family:'Roboto',system-ui,sans-serif;letter-spacing:-.01em}
+h1{font-weight:900;color:var(--ink)}
+h1 em{font-style:normal;color:var(--brand)}
+.appbar{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.appbar img{border-radius:12px;box-shadow:0 4px 12px rgba(16,146,90,.3)}
+.appbar b{font-size:1.25rem;font-weight:800}
+.heroc{background:var(--card)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.chips span{background:var(--hi);color:var(--ink);border-radius:999px;padding:7px 12px;font-size:.88rem;font-weight:500}
+#cont,#cert{background-image:linear-gradient(135deg,var(--gold2),var(--gold));color:#1B2B1F;font-weight:800;box-shadow:0 10px 22px rgba(255,198,46,.4)}
+.band{background:linear-gradient(135deg,#0E8A55,#16A56A);color:#fff;border-radius:26px;padding:20px;margin:22px 0 0;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 30px rgba(14,138,85,.3)}
+.band b{font-size:1.35rem;font-weight:900;line-height:1.15}
+.band span{opacity:.92}
+.band .btn{background-image:linear-gradient(135deg,var(--gold2),var(--gold));color:#1B2B1F;font-weight:800;align-self:flex-start;box-shadow:none}
+.mod header{background:none;gap:14px}
+.mn{width:52px;height:52px;border-radius:16px;background:var(--hi);background-image:none;font-size:1.6rem;color:inherit}
+.mi{flex:1;min-width:0}
+.mi h2{display:block;font-size:1.1rem;font-weight:800}
+.mi small{display:block;margin-top:2px}
+.mi .bar{height:7px;margin-top:8px}
+.les .dot{border-color:var(--brand);color:var(--brand)}
+.les.on .dot{color:var(--onbrand)}
+.tabs button{font-weight:700}
 </style>
 </head>
 <body>
@@ -194,12 +221,14 @@ function instalar(){
 var HERO='<svg class="hero" viewBox="0 0 400 220" role="img" aria-label="Estantería ordenada con libros, una planta, una canasta y elementos de limpieza"><ellipse cx="200" cy="208" rx="150" ry="8" fill="#000" opacity=".08"/><rect x="56" y="24" width="288" height="176" rx="14" fill="var(--card)" stroke="#B98557" stroke-width="8"/><rect x="60" y="96" width="280" height="9" fill="#C99A64"/><rect x="60" y="164" width="280" height="9" fill="#C99A64"/><rect x="76" y="58" width="14" height="38" rx="2" fill="#E0894F"/><rect x="92" y="50" width="12" height="46" rx="2" fill="#5B9A68"/><rect x="106" y="62" width="16" height="34" rx="2" fill="#E8B659"/><path d="M156 72h34l-4 24h-26z" fill="#E0894F"/><path d="M173 72c-18-4-26-20-22-34 14 2 24 14 22 34z" fill="#4F8A5B"/><path d="M173 72c2-22 12-32 26-34 2 14-8 28-26 34z" fill="#5B9A68"/><path d="M173 72c-2-16 2-28 8-38 6 10 6 24-8 38z" fill="#3F7A4B"/><rect x="228" y="62" width="30" height="34" rx="6" fill="#BFE0C6"/><rect x="226" y="56" width="34" height="9" rx="3" fill="#E8B659"/><rect x="278" y="54" width="46" height="42" rx="4" fill="#FFF9EA" stroke="#C99A64" stroke-width="4"/><path d="M290 86l11-11 11 11v8h-22z" fill="#5B9A68"/><rect x="298" y="84" width="7" height="10" fill="#FFF9EA"/><path d="M80 164v-30h56v30z" fill="#D4A86A"/><path d="M80 143h56M80 153h56" stroke="#B98557" stroke-width="2"/><path d="M92 134c0-14 32-14 32 0" fill="none" stroke="#B98557" stroke-width="4"/><rect x="156" y="150" width="56" height="14" rx="3" fill="#FFF9EA" stroke="#D9D3BC"/><rect x="160" y="136" width="50" height="14" rx="3" fill="#BFE0C6"/><rect x="156" y="122" width="56" height="14" rx="3" fill="#F2C9A8"/><rect x="232" y="138" width="26" height="26" rx="6" fill="#7FB8C9"/><rect x="238" y="126" width="14" height="12" fill="#3F7A4B"/><path d="M236 127h22l8 5-8 3h-22z" fill="#3F7A4B"/><path d="M280 138h44l-5 26h-34z" fill="#E8B659"/><path d="M284 138c0-14 36-14 36 0" fill="none" stroke="#B98557" stroke-width="4"/><path d="M28 34q2 12 14 14-12 2-14 14-2-12-14-14 12-2 14-14z" fill="#E8B659"/><path d="M372 20q2 10 12 12-10 2-12 12-2-10-12-12 10-2 12-12z" fill="#5B9A68"/><path d="M376 120q2 10 12 12-10 2-12 12-2-10-12-12 10-2 12-12z" fill="#E8B659"/></svg>';
 function home(){
   var n=count(),t=total(),nx=nextUndone();
-  var h='<div class="heroc"><span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
-  h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><p class="meta">15 minutos por día · a tu ritmo · acceso de por vida</p>'+HERO+'</div>';
+  var h='<div class="appbar"><img src="icon-192.png" alt="" width="40" height="40"><b>Casa en Orden</b></div><div class="heroc"><span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
+  h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><div class="chips"><span>⏱️ 15 min por día</span><span>🎤 Tareas y compras por voz</span><span>🎓 Certificado</span><span>♾️ Acceso de por vida</span></div>'+HERO+'</div>';
+  if(!S.pro&&!GRATIS)h+='<div class="band"><b>¡Probá GRATIS el primer módulo!</b><span>El resto del curso se desbloquea con tu código de acceso.</span><button class="btn" type="button" data-pw="1">Desbloquear el curso</button></div>';
   h+='<button class="btn out" id="ins" type="button" style="width:100%;margin-top:18px">📲 Cómo instalar el curso en tu celular</button><div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
   M.forEach(function(m,mi){
     var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;
-    h+='<section class="mod"><header><div><h2><span class="mn">'+(mi+1)+'</span><span>'+m.t+'</span></h2><small>'+dn+' de '+m.l.length+' lecciones</small></div>'+(locked(mi)?'<button class="tag" type="button" data-pw="1" style="cursor:pointer;border:0;padding:7px 14px;font-size:.8rem">🔒 Completo</button>':'')+'</header>';
+    var IC=['🌱','🧽','🍳','🛏️','🔁'],mins=m.l.reduce(function(x,l){return x+l[1]},0);
+    h+='<section class="mod"><header><span class="mn">'+IC[mi]+'</span><div class="mi"><h2>'+m.t+'</h2><small>Módulo '+(mi+1)+' · '+mins+' min · '+dn+' de '+m.l.length+' lecciones</small><div class="bar"><i style="width:'+Math.round(dn/m.l.length*100)+'%"></i></div></div>'+(locked(mi)?'<button class="tag" type="button" data-pw="1" style="cursor:pointer;border:0;padding:7px 14px;font-size:.8rem">🔒 Completo</button>':'')+'</header>';
     m.l.forEach(function(l,li){var d=S.done[mi+'-'+li];
       h+='<button class="les'+(d?' on':'')+'" data-m="'+mi+'" data-l="'+li+'"><span class="dot">'+(d?'✓':li+1)+'</span><span><b>'+l[0]+'</b><small>'+l[1]+' min</small></span></button>'});
     if(dn)h+='<button class="les" data-rm="'+mi+'" style="color:var(--mute);font-weight:600">Destildar este módulo para repetirlo</button>';
@@ -254,7 +283,7 @@ function dictar(dest){
   try{r.start();m.classList.add('rec');setVm('Escuchando… hablá ahora.')}catch(e){setVm('No pude abrir el micrófono. '+tip)}}
 function render(){
   document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras})[S.v]();
-  document.getElementById('tabs').innerHTML=[['home','Curso'],['tareas','Mis tareas'],['compras','Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
+  document.getElementById('tabs').innerHTML=[['home','🏠 Curso'],['tareas','✅ Mis tareas'],['compras','🛒 Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
   var f;
   if(f=document.getElementById('ins'))f.onclick=instalar;
   if(f=document.getElementById('vp'))f.onclick=function(){document.getElementById('prog').scrollIntoView({behavior:'smooth'})};
