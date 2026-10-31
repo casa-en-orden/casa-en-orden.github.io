@@ -6,7 +6,8 @@
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#35603F">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F8FCFB">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Casa en Orden">
 <title>Casa en Orden – Curso para organizar y limpiar tu casa</title>
@@ -14,8 +15,7 @@
 <style>
 :root{--bg:#FAF8F0;--card:#FFFEFA;--ink:#14291B;--mute:#5C6B60;--line:#E4E0CD;--brand:#35603F;--onbrand:#fff;--hi:#DDEAD7;--sand:#E9E4D2;--ok:#35603F;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101A14;--card:#17241B;--ink:#EDEBDD;--mute:#A3B2A6;--line:#28392D;--brand:#8FC29A;--onbrand:#0F1A13;--hi:#24382A;--sand:#1E2D23;--ok:#8FC29A}}
-:root[data-theme="dark"]{--bg:#101A14;--card:#17241B;--ink:#EDEBDD;--mute:#A3B2A6;--line:#28392D;--brand:#8FC29A;--onbrand:#0F1A13;--hi:#24382A;--sand:#1E2D23;--ok:#8FC29A}
+
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 'DM Sans',system-ui,sans-serif}
 main{max-width:600px;margin:0 auto;padding:22px 20px 120px}
@@ -77,7 +77,7 @@ form.add select{font:inherit;padding:12px 14px;border:1.5px solid var(--line);bo
 
 /* ===== Mejoras visuales ===== */
 :root{--brand2:#5E9C6B;--sh:0 8px 26px rgba(20,41,27,.08)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand2:#B7DFC0;--sh:0 8px 26px rgba(0,0,0,.3)}}
+
 body{background:radial-gradient(900px 420px at 50% -120px,var(--hi),transparent) no-repeat,var(--bg)}
 main>*{animation:up .45s ease both}
 @keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -141,6 +141,72 @@ h1 em{font-style:normal;color:var(--brand)}
 .les .dot{border-color:var(--brand);color:var(--brand)}
 .les.on .dot{color:var(--onbrand)}
 .tabs button{font-weight:700}
+
+/* ===== Más parecido al anuncio ===== */
+.mn{padding:4px;overflow:hidden}
+.mn svg{width:100%;height:100%;display:block}
+.heroc{position:relative;overflow:hidden}
+.heroc::before{content:"✦";position:absolute;top:18px;right:20px;color:var(--gold);font-size:1.6rem}
+.heroc::after{content:"✦";position:absolute;bottom:70px;left:14px;color:var(--brand2);font-size:1.1rem;opacity:.7}
+.heroc .hero{margin:20px 0 18px;box-shadow:0 14px 30px rgba(16,146,90,.15)}
+
+/* ===== Colores más claros y llamativos ===== */
+:root{--bg:#F5FBF8;--ink:#0F2D52;--mute:#5F7490;--line:#DFEDE7;--brand:#0B9A66;--brand2:#2FCB92;--hi:#E2F6EE;--sand:#E2F6EE;--gold:#FFC21A;--gold2:#FFDB5C}
+body{background:radial-gradient(700px 380px at 15% -80px,#FFE9B8,transparent) no-repeat,radial-gradient(700px 380px at 95% -60px,#D6EEFF,transparent) no-repeat,var(--bg)}
+.mod{border:1px solid var(--line);border-top:5px solid var(--mc,var(--brand))}
+.mn{background:var(--mt,var(--hi))}
+.mi .bar i{background:var(--mc,var(--brand));background-image:none}
+.chips span:nth-child(1){background:#FFEBD6}
+.chips span:nth-child(2){background:#DDEFFF}
+.chips span:nth-child(3){background:#FFE0EA}
+.chips span:nth-child(4){background:#EBE2FF}
+.band{background:linear-gradient(135deg,#0B9A66,#2FCB92)}
+.heroc{background:linear-gradient(180deg,#fff,#F1FAF6)}
+.pill{background:#FFEBD6!important;border-color:#FFD2A8!important}
+.tag{background:var(--mc,var(--brand));color:#fff}
+.les:hover{background:var(--mt,var(--hi))}
+.les .dot{border-color:var(--mc,var(--brand));color:var(--mc,var(--brand))}
+.les.on .dot{background:var(--mc,var(--brand));border-color:var(--mc,var(--brand));color:#fff}
+
+
+:root{color-scheme:light;--bg:#F8FCFB}
+
+/* ===== Contornos de colores ===== */
+:root{--rb:linear-gradient(135deg,#FF8A3D,#FF5C8A,#8B5CF6,#2E9BFF,#0FB57A)}
+.heroc{border:3px solid transparent;background:linear-gradient(180deg,#fff,#F1FAF6) padding-box,var(--rb) border-box;box-shadow:0 18px 40px rgba(139,92,246,.16)}
+.heroc .hero{box-shadow:none}
+.mod{border:2.5px solid var(--mc,var(--brand));border-top-width:6px;box-shadow:0 10px 24px color-mix(in srgb,var(--mc,#0B9A66) 22%,transparent)}
+.mod .les{border-top:1.5px dashed color-mix(in srgb,var(--mc,#0B9A66) 45%,#fff)}
+.prog{border:3px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--rb) border-box}
+.les-body{border:3px solid var(--mc,var(--line));box-shadow:0 10px 24px color-mix(in srgb,var(--mc,#0B9A66) 20%,transparent)}
+.task{border:3px solid var(--mc,var(--brand));border-left-width:9px;background:var(--mt,var(--hi))}
+.chips span{border:2px solid #ddd}
+.chips span:nth-child(1){border-color:#FFB26B}
+.chips span:nth-child(2){border-color:#7CC4FF}
+.chips span:nth-child(3){border-color:#FF8FB0}
+.chips span:nth-child(4){border-color:#B79BFF}
+.btn{border:3px solid rgba(255,255,255,.7);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 25%,transparent),0 10px 22px rgba(11,154,102,.25)}
+.btn.out{background:#fff;border:3px solid var(--brand);box-shadow:none;color:var(--brand);font-weight:700}
+#cont,#cert{border:3px solid #FF9F1C;box-shadow:0 0 0 4px rgba(255,194,26,.35),0 10px 22px rgba(255,159,28,.35)}
+.band{border:3px solid #FFC21A;box-shadow:0 14px 30px rgba(11,154,102,.3)}
+.band .btn{border-color:#FF9F1C;box-shadow:none}
+.tabs{border:3px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--rb) border-box;backdrop-filter:none;-webkit-backdrop-filter:none}
+.tabs button[aria-current=page]{background:var(--brand);box-shadow:0 4px 12px rgba(11,154,102,.35)}
+.row{border:2.5px solid var(--rc,#DFEDE7)}
+.row:nth-child(5n+1){--rc:#FFB26B}
+.row:nth-child(5n+2){--rc:#7CC4FF}
+.row:nth-child(5n+3){--rc:#FF8FB0}
+.row:nth-child(5n+4){--rc:#B79BFF}
+.row:nth-child(5n){--rc:#6BDDAE}
+.empty{border:2.5px dashed #FFB26B;background:#FFF8EF}
+input,form.add select{border:2.5px solid #BFE3D3}
+input:focus,form.add select:focus{border-color:var(--brand);box-shadow:0 0 0 4px rgba(15,181,122,.2)}
+dialog{border:4px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--rb) border-box}
+.cert{border:5px solid transparent;background:linear-gradient(#fff,#F1FAF6) padding-box,var(--rb) border-box}
+.appbar img{border:3px solid #fff;box-shadow:0 0 0 3px #FFC21A,0 6px 14px rgba(255,194,26,.4)}
+.pill{border:2px solid #FFB26B!important}
+.tabs button{white-space:nowrap;font-size:.86rem;padding:11px 2px}
+.btn{border-radius:999px}
 </style>
 </head>
 <body>
@@ -214,11 +280,13 @@ function paywall(){
 }
 function instalar(){
   var d=document.getElementById('dlg');
-  d.innerHTML='<h2>Instalá el curso en tu celular</h2><p class="sub">Así lo abrís con un toque desde la pantalla de inicio, como una app. Tu progreso queda guardado en ese celular.</p><h2 style="font-size:1rem">Android (Chrome)</h2><ol class="ft"><li>Abrí el curso en <b>Chrome</b>.</li><li>Tocá los <b>tres puntitos</b> de arriba a la derecha.</li><li>Elegí <b>Instalar aplicación</b> o <b>Agregar a la pantalla principal</b>.</li><li>Confirmá con <b>Instalar</b> o <b>Agregar</b>.</li></ol><h2 style="font-size:1rem">iPhone (Safari)</h2><ol class="ft"><li>Abrí el curso en <b>Safari</b> (no en otro navegador).</li><li>Tocá el botón <b>Compartir</b> (el cuadrado con una flecha hacia arriba).</li><li>Bajá y elegí <b>Agregar a pantalla de inicio</b>.</li><li>Tocá <b>Agregar</b>.</li></ol><p class="sub">Si abriste el link desde WhatsApp, primero tocá <b>Abrir en el navegador</b> y después seguí los pasos.</p><button class="btn" id="cl" style="width:100%">Entendido</button>';
+  d.innerHTML='<h2>Instalá el curso en tu celular</h2><p class="sub">Así lo abrís con un toque desde la pantalla de inicio, como una app. Tu progreso queda guardado en ese celular.</p><h2 style="font-size:1rem">Android (Chrome)</h2><ol class="ft"><li>Abrí el curso en <b>Chrome</b>.</li><li>Tocá los <b>tres puntitos</b> de arriba a la derecha.</li><li>Elegí <b>Instalar aplicación</b> o <b>Agregar a la pantalla principal</b>.</li><li>Confirmá con <b>Instalar</b> o <b>Agregar</b>.</li></ol><h2 style="font-size:1rem">iPhone (Safari)</h2><ol class="ft"><li>Abrí el curso en <b>Safari</b> (no en otro navegador).</li><li>Tocá el botón <b>Compartir</b> (el cuadrado con una flecha hacia arriba).</li><li>Bajá y elegí <b>Agregar a pantalla de inicio</b>.</li><li>Tocá <b>Agregar</b>.</li></ol><h2 style="font-size:1rem">Computadora (Chrome o Edge)</h2><ol class="ft"><li>Abrí el curso en <b>Chrome</b> o <b>Edge</b>.</li><li>Tocá el ícono de <b>instalar</b> al final de la barra de direcciones (una pantallita con una flecha). Si no lo ves, abrí el menú de los tres puntitos y elegí <b>Instalar Casa en Orden</b> (en Edge: <b>Aplicaciones</b> y <b>Instalar este sitio como aplicación</b>).</li><li>Confirmá con <b>Instalar</b>. Se crea un acceso en el escritorio y en el menú Inicio.</li></ol><p class="sub">Si abriste el link desde WhatsApp, primero tocá <b>Abrir en el navegador</b> y después seguí los pasos.</p><button class="btn" id="cl" style="width:100%">Entendido</button>';
   d.showModal();
   document.getElementById('cl').onclick=function(){d.close()};
 }
-var HERO='<svg class="hero" viewBox="0 0 400 220" role="img" aria-label="Estantería ordenada con libros, una planta, una canasta y elementos de limpieza"><ellipse cx="200" cy="208" rx="150" ry="8" fill="#000" opacity=".08"/><rect x="56" y="24" width="288" height="176" rx="14" fill="var(--card)" stroke="#B98557" stroke-width="8"/><rect x="60" y="96" width="280" height="9" fill="#C99A64"/><rect x="60" y="164" width="280" height="9" fill="#C99A64"/><rect x="76" y="58" width="14" height="38" rx="2" fill="#E0894F"/><rect x="92" y="50" width="12" height="46" rx="2" fill="#5B9A68"/><rect x="106" y="62" width="16" height="34" rx="2" fill="#E8B659"/><path d="M156 72h34l-4 24h-26z" fill="#E0894F"/><path d="M173 72c-18-4-26-20-22-34 14 2 24 14 22 34z" fill="#4F8A5B"/><path d="M173 72c2-22 12-32 26-34 2 14-8 28-26 34z" fill="#5B9A68"/><path d="M173 72c-2-16 2-28 8-38 6 10 6 24-8 38z" fill="#3F7A4B"/><rect x="228" y="62" width="30" height="34" rx="6" fill="#BFE0C6"/><rect x="226" y="56" width="34" height="9" rx="3" fill="#E8B659"/><rect x="278" y="54" width="46" height="42" rx="4" fill="#FFF9EA" stroke="#C99A64" stroke-width="4"/><path d="M290 86l11-11 11 11v8h-22z" fill="#5B9A68"/><rect x="298" y="84" width="7" height="10" fill="#FFF9EA"/><path d="M80 164v-30h56v30z" fill="#D4A86A"/><path d="M80 143h56M80 153h56" stroke="#B98557" stroke-width="2"/><path d="M92 134c0-14 32-14 32 0" fill="none" stroke="#B98557" stroke-width="4"/><rect x="156" y="150" width="56" height="14" rx="3" fill="#FFF9EA" stroke="#D9D3BC"/><rect x="160" y="136" width="50" height="14" rx="3" fill="#BFE0C6"/><rect x="156" y="122" width="56" height="14" rx="3" fill="#F2C9A8"/><rect x="232" y="138" width="26" height="26" rx="6" fill="#7FB8C9"/><rect x="238" y="126" width="14" height="12" fill="#3F7A4B"/><path d="M236 127h22l8 5-8 3h-22z" fill="#3F7A4B"/><path d="M280 138h44l-5 26h-34z" fill="#E8B659"/><path d="M284 138c0-14 36-14 36 0" fill="none" stroke="#B98557" stroke-width="4"/><path d="M28 34q2 12 14 14-12 2-14 14-2-12-14-14 12-2 14-14z" fill="#E8B659"/><path d="M372 20q2 10 12 12-10 2-12 12-2-10-12-12 10-2 12-12z" fill="#5B9A68"/><path d="M376 120q2 10 12 12-10 2-12 12-2-10-12-12 10-2 12-12z" fill="#E8B659"/></svg>';
+var IMG=['<svg viewBox="0 0 56 56" aria-hidden="true"><path d="M30 26c-8-2-12-9-10-15 7 1 11 7 10 15z" fill="#4F8A5B"/><path d="M30 26c1-9 6-14 12-14 1 7-4 12-12 14z" fill="#5B9A68"/><path d="M8 28h40l-4 20H12z" fill="#D4A86A"/><path d="M8 28h40v6H8z" fill="#C99A64"/><rect x="22" y="38" width="12" height="4" rx="2" fill="#FFF9EA"/></svg>', '<svg viewBox="0 0 56 56" aria-hidden="true"><rect x="20" y="26" width="18" height="24" rx="5" fill="#7FB8C9"/><rect x="24" y="16" width="10" height="10" fill="#3F7A4B"/><path d="M22 17h14l7 4-7 3H22z" fill="#3F7A4B"/><path d="M46 8q1 6 6 7-5 1-6 7-1-6-6-7 5-1 6-7z" fill="#E8B659"/><path d="M10 14q1 4 4 5-3 1-4 5-1-4-4-5 3-1 4-5z" fill="#E8B659"/></svg>', '<svg viewBox="0 0 56 56" aria-hidden="true"><rect x="10" y="26" width="36" height="20" rx="6" fill="#8AA0AE"/><rect x="8" y="22" width="40" height="7" rx="3.500" fill="#A9BDC9"/><rect x="25" y="16" width="6" height="6" rx="3" fill="#E8B659"/><rect x="3" y="30" width="7" height="4" rx="2" fill="#8AA0AE"/><rect x="46" y="30" width="7" height="4" rx="2" fill="#8AA0AE"/><path d="M20 12q-3-4 0-8M28 12q-3-4 0-8M36 12q-3-4 0-8" fill="none" stroke="#9DB7C4" stroke-width="2" stroke-linecap="round"/></svg>', '<svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="20" width="5" height="30" rx="2" fill="#C99A64"/><rect x="45" y="30" width="5" height="20" rx="2" fill="#C99A64"/><rect x="8" y="32" width="40" height="12" rx="4" fill="#FFF9EA"/><rect x="10" y="24" width="14" height="9" rx="4" fill="#F2C9A8"/><rect x="22" y="32" width="26" height="12" rx="4" fill="#5B9A68"/><rect x="8" y="44" width="40" height="5" rx="2" fill="#C99A64"/></svg>', '<svg viewBox="0 0 56 56" aria-hidden="true"><rect x="8" y="12" width="40" height="38" rx="8" fill="#FFF9EA" stroke="#10925A" stroke-width="3"/><rect x="8" y="12" width="40" height="11" rx="6" fill="#10925A"/><rect x="17" y="6" width="4" height="10" rx="2" fill="#E8B659"/><rect x="35" y="6" width="4" height="10" rx="2" fill="#E8B659"/><path d="M18 36l7 7 13-14" fill="none" stroke="#10925A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'];
+var MCOL=[['#FF8A3D', '#FFEBD6'], ['#2E9BFF', '#DDEFFF'], ['#FF5C8A', '#FFE0EA'], ['#8B5CF6', '#EBE2FF'], ['#0FB57A', '#D9F7EA']];
+var HERO='<svg class="hero" viewBox="0 0 400 290" role="img" aria-label="Celular con la app Casa en Orden y los módulos del curso"><rect width="400" height="290" rx="28" fill="var(--hi)"/><rect x="18" y="14" width="128" height="262" rx="24" fill="#12324A"/><rect x="24" y="22" width="116" height="246" rx="18" fill="var(--card)"/><rect x="66" y="26" width="32" height="5" rx="2.5" fill="#12324A"/><rect x="32" y="40" width="18" height="18" rx="5" fill="var(--brand)"/><path d="M36 50l5-5 5 5v4h-10z" fill="#fff"/><text x="56" y="53" font-size="11" font-weight="700" fill="var(--ink)" font-family="Roboto,sans-serif">Casa en Orden</text><rect x="32" y="66" width="100" height="6" rx="3" fill="var(--line)"/><rect x="32" y="66" width="58" height="6" rx="3" fill="#FF8A3D"/><rect x="30" y="82" width="104" height="140" rx="10" fill="#FFEBD6"/><text x="38" y="99" font-size="10" font-weight="700" fill="var(--ink)" font-family="Roboto,sans-serif">Módulo 1</text><text x="38" y="112" font-size="9" fill="var(--mute)" font-family="Roboto,sans-serif">Empezá sin agobio</text><circle cx="44" cy="134" r="7" fill="var(--brand)"/><path d="M40.5 134l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><text x="56" y="137" font-size="9" fill="var(--ink)" font-family="Roboto,sans-serif">Regla de 15 min</text><circle cx="44" cy="156" r="7" fill="var(--brand)"/><path d="M40.5 156l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><text x="56" y="159" font-size="9" fill="var(--ink)" font-family="Roboto,sans-serif">Mapa de la casa</text><circle cx="44" cy="178" r="7" fill="var(--brand)"/><path d="M40.5 178l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><text x="56" y="181" font-size="9" fill="var(--ink)" font-family="Roboto,sans-serif">Las cuatro cajas</text><circle cx="44" cy="200" r="6.5" fill="none" stroke="var(--brand)" stroke-width="1.5"/><text x="56" y="203" font-size="9" fill="var(--ink)" font-family="Roboto,sans-serif">Tu primera práctica</text><circle cx="52" cy="251" r="6" fill="var(--brand)"/><circle cx="82" cy="251" r="6" fill="var(--line)"/><circle cx="112" cy="251" r="6" fill="var(--line)"/><rect x="168" y="22" width="220" height="56" rx="12" fill="var(--card)" stroke="#2E9BFF" stroke-width="2.5"/><rect x="176" y="30" width="40" height="40" rx="10" fill="#DDEFFF"/><text x="196" y="57" font-size="21" text-anchor="middle">🧽</text><text x="226" y="43" font-size="12" font-weight="700" fill="var(--ink)" font-family="Roboto,sans-serif">Módulo 2</text><text x="226" y="57" font-size="10.5" fill="var(--mute)" font-family="Roboto,sans-serif">Limpieza que se mantiene</text><rect x="226" y="64" width="150" height="5" rx="2.5" fill="var(--line)"/><rect x="226" y="64" width="60" height="5" rx="2.5" fill="#2E9BFF"/><rect x="168" y="88" width="220" height="56" rx="12" fill="var(--card)" stroke="#FF5C8A" stroke-width="2.5"/><rect x="176" y="96" width="40" height="40" rx="10" fill="#FFE0EA"/><text x="196" y="123" font-size="21" text-anchor="middle">🍳</text><text x="226" y="109" font-size="12" font-weight="700" fill="var(--ink)" font-family="Roboto,sans-serif">Módulo 3</text><text x="226" y="123" font-size="10.5" fill="var(--mute)" font-family="Roboto,sans-serif">Cocina y baño</text><rect x="226" y="130" width="150" height="5" rx="2.5" fill="var(--line)"/><rect x="226" y="130" width="105" height="5" rx="2.5" fill="#FF5C8A"/><rect x="168" y="154" width="220" height="56" rx="12" fill="var(--card)" stroke="#8B5CF6" stroke-width="2.5"/><rect x="176" y="162" width="40" height="40" rx="10" fill="#EBE2FF"/><text x="196" y="189" font-size="21" text-anchor="middle">🛏️</text><text x="226" y="175" font-size="12" font-weight="700" fill="var(--ink)" font-family="Roboto,sans-serif">Módulo 4</text><text x="226" y="189" font-size="10.5" fill="var(--mute)" font-family="Roboto,sans-serif">Dormitorios y placards</text><rect x="226" y="196" width="150" height="5" rx="2.5" fill="var(--line)"/><rect x="226" y="196" width="45" height="5" rx="2.5" fill="#8B5CF6"/><rect x="168" y="220" width="220" height="56" rx="12" fill="var(--card)" stroke="#0FB57A" stroke-width="2.5"/><rect x="176" y="228" width="40" height="40" rx="10" fill="#D9F7EA"/><text x="196" y="255" font-size="21" text-anchor="middle">🔁</text><text x="226" y="241" font-size="12" font-weight="700" fill="var(--ink)" font-family="Roboto,sans-serif">Módulo 5</text><text x="226" y="255" font-size="10.5" fill="var(--mute)" font-family="Roboto,sans-serif">Hábitos para que dure</text><rect x="226" y="262" width="150" height="5" rx="2.5" fill="var(--line)"/><rect x="226" y="262" width="15" height="5" rx="2.5" fill="#0FB57A"/><circle cx="372" cy="22" r="0" fill="none"/><path d="M382 270q1.5 7 8 8-6.500 1-8 8-1.500-7-8-8 6.500-1 8-8z" fill="#E8B659"/><path d="M156 280q1 5 6 6-5 1-6 6-1-5-6-6 5-1 6-6z" fill="var(--brand)"/></svg>';
 function home(){
   var n=count(),t=total(),nx=nextUndone();
   var h='<div class="appbar"><img src="icon-192.png" alt="" width="40" height="40"><b>Casa en Orden</b></div><div class="heroc"><span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
@@ -227,8 +295,8 @@ function home(){
   h+='<button class="btn out" id="ins" type="button" style="width:100%;margin-top:18px">📲 Cómo instalar el curso en tu celular</button><div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
   M.forEach(function(m,mi){
     var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;
-    var IC=['🌱','🧽','🍳','🛏️','🔁'],mins=m.l.reduce(function(x,l){return x+l[1]},0);
-    h+='<section class="mod"><header><span class="mn">'+IC[mi]+'</span><div class="mi"><h2>'+m.t+'</h2><small>Módulo '+(mi+1)+' · '+mins+' min · '+dn+' de '+m.l.length+' lecciones</small><div class="bar"><i style="width:'+Math.round(dn/m.l.length*100)+'%"></i></div></div>'+(locked(mi)?'<button class="tag" type="button" data-pw="1" style="cursor:pointer;border:0;padding:7px 14px;font-size:.8rem">🔒 Completo</button>':'')+'</header>';
+    var MC=[['#FF8A3D', '#FFEBD6'], ['#2E9BFF', '#DDEFFF'], ['#FF5C8A', '#FFE0EA'], ['#8B5CF6', '#EBE2FF'], ['#0FB57A', '#D9F7EA']],IC=['🌱','🧽','🍳','🛏️','🔁'],mins=m.l.reduce(function(x,l){return x+l[1]},0);
+    h+='<section class="mod" style="--mc:'+MC[mi][0]+';--mt:'+MC[mi][1]+'"><header><span class="mn">'+IMG[mi]+'</span><div class="mi"><h2>'+m.t+'</h2><small>Módulo '+(mi+1)+' · '+mins+' min · '+dn+' de '+m.l.length+' lecciones</small><div class="bar"><i style="width:'+Math.round(dn/m.l.length*100)+'%"></i></div></div>'+(locked(mi)?'<button class="tag" type="button" data-pw="1" style="cursor:pointer;border:0;padding:7px 14px;font-size:.8rem">🔒 Completo</button>':'')+'</header>';
     m.l.forEach(function(l,li){var d=S.done[mi+'-'+li];
       h+='<button class="les'+(d?' on':'')+'" data-m="'+mi+'" data-l="'+li+'"><span class="dot">'+(d?'✓':li+1)+'</span><span><b>'+l[0]+'</b><small>'+l[1]+' min</small></span></button>'});
     if(dn)h+='<button class="les" data-rm="'+mi+'" style="color:var(--mute);font-weight:600">Destildar este módulo para repetirlo</button>';
@@ -236,7 +304,7 @@ function home(){
   return h}
 function lesson(){
   var m=M[S.m],ls=m.l[S.l],d=S.done[S.m+'-'+S.l];
-  return '<button class="ghost" id="back">← Temario</button><p class="sub">Módulo '+(S.m+1)+' · '+m.t+' · '+ls[1]+' min</p><h1>'+ls[0]+'</h1><div class="les-body" style="margin-top:16px">'+ls[2].split('\n').map(function(p){return'<p>'+p+'</p>'}).join('')+'</div><div class="task"><b>Práctica</b><p>'+ls[3]+'</p><button class="ghost" id="addt" type="button">+ Agregar a mis tareas</button></div><button class="btn" id="fin" style="width:100%">'+(d?'Siguiente lección':'Hice la práctica. Completar')+'</button>'+(d?'<button class="ghost" id="undo" style="width:100%;margin-top:6px">Destildar esta lección para repetirla</button>':'')}
+  return '<button class="ghost" id="back">← Temario</button><p class="sub">Módulo '+(S.m+1)+' · '+m.t+' · '+ls[1]+' min</p><h1>'+ls[0]+'</h1><div class="les-body" style="margin-top:16px;--mc:'+MCOL[S.m][0]+';--mt:'+MCOL[S.m][1]+'">'+ls[2].split('\n').map(function(p){return'<p>'+p+'</p>'}).join('')+'</div><div class="task" style="--mc:'+MCOL[S.m][0]+';--mt:'+MCOL[S.m][1]+'"><b>Práctica</b><p>'+ls[3]+'</p><button class="ghost" id="addt" type="button">+ Agregar a mis tareas</button></div><button class="btn" id="fin" style="width:100%">'+(d?'Siguiente lección':'Hice la práctica. Completar')+'</button>'+(d?'<button class="ghost" id="undo" style="width:100%;margin-top:6px">Destildar esta lección para repetirla</button>':'')}
 function cert(){
   if(count()<total()){S.v='home';return home()}
   return '<div class="noprint"><button class="ghost" id="back">← Temario</button><h1>¡Lo lograste!</h1><p class="sub">Escribí tu nombre para tu certificado.</p><input id="nm" value="'+esc(S.name)+'" placeholder="Tu nombre" maxlength="40" aria-label="Tu nombre"></div><div class="cert"><p>Certificado de finalización</p><div class="n">'+esc(S.name||'Tu nombre')+'</div><p>completó el curso <b>Casa en Orden</b><br>'+new Date().toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'})+'</p></div><button class="btn noprint" id="prt" style="width:100%">Imprimir certificado</button>'}
