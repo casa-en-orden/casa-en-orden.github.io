@@ -190,7 +190,7 @@ function home(){
   h+='<button class="btn out" id="ins" type="button" style="width:100%;margin-top:18px">📲 Cómo instalar el curso en tu celular</button><div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
   M.forEach(function(m,mi){
     var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;
-    h+='<section class="mod"><header><div><h2><span class="mn">'+(mi+1)+'</span><span>'+m.t+'</span></h2><small>'+dn+' de '+m.l.length+' lecciones</small></div>'+(locked(mi)?'<span class="tag">🔒 Completo</span>':'')+'</header>';
+    h+='<section class="mod"><header><div><h2><span class="mn">'+(mi+1)+'</span><span>'+m.t+'</span></h2><small>'+dn+' de '+m.l.length+' lecciones</small></div>'+(locked(mi)?'<button class="tag" type="button" data-pw="1" style="cursor:pointer;border:0;padding:7px 14px;font-size:.8rem">🔒 Completo</button>':'')+'</header>';
     m.l.forEach(function(l,li){var d=S.done[mi+'-'+li];
       h+='<button class="les'+(d?' on':'')+'" data-m="'+mi+'" data-l="'+li+'"><span class="dot">'+(d?'✓':li+1)+'</span><span><b>'+l[0]+'</b><small>'+l[1]+' min</small></span></button>'});
     if(dn)h+='<button class="les" data-rm="'+mi+'" style="color:var(--mute);font-weight:600">Destildar este módulo para repetirlo</button>';
@@ -270,6 +270,7 @@ function render(){
   document.querySelectorAll('[data-sd]').forEach(function(b){b.onclick=function(){S.shop=S.shop.filter(function(x){return x.id!=b.dataset.sd});save();render()}});
   if(f=document.getElementById('scl'))f.onclick=function(){S.shop=S.shop.filter(function(x){return !x.c});save();render()};
   if(f=document.getElementById('cpy'))f.onclick=function(){var tx=S.shop.filter(function(x){return !x.c}).map(function(x){return '- '+x.n}).join(String.fromCharCode(10));try{navigator.clipboard.writeText(tx).then(function(){setVm('Lista copiada.')},function(){setVm('No pude copiar. Seleccioná y copiá a mano.')})}catch(e){setVm('No pude copiar.')}};
+  document.querySelectorAll('[data-pw]').forEach(function(b){b.onclick=paywall});
   document.querySelectorAll('[data-m]').forEach(function(b){b.onclick=function(){go(+b.dataset.m,+b.dataset.l)}});
   if(f=document.getElementById('cont'))f.onclick=function(){var n=nextUndone();go(n[0],n[1])};
   if(f=document.getElementById('back'))f.onclick=function(){S.v='home';save();render()};
