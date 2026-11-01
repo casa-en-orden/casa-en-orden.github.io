@@ -221,6 +221,20 @@ dialog{border:4px solid transparent;background:linear-gradient(#fff,#fff) paddin
 .mod header .tag{padding:6px 10px!important;font-size:.72rem!important}
 .mod header{padding:14px}
 .mi small{font-size:.82rem}
+
+.chk{width:100%;border-collapse:collapse;font-size:.82rem;background:#fff}
+.chk th,.chk td{border:1.5px solid var(--line);padding:6px 3px;text-align:center}
+.chk td:first-child,.chk th:first-child{text-align:left;padding-left:8px}
+.chk tr.z td{background:var(--hi);font-weight:800;text-align:left}
+.bx{display:inline-block;width:16px;height:16px;border:2px solid var(--brand);border-radius:5px}
+@media print{.chk{font-size:11pt}.bx{width:14px;height:14px}h1{font-size:20pt}}
+.chk{table-layout:fixed}
+.chk th:first-child{width:40%}
+.chk tr.z td{display:table-cell}
+.chk{margin-bottom:14px}
+.chk thead th{background:var(--hi);font-weight:800}
+.chk thead th:first-child{font-size:.95rem}
+@media print{.chk{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -232,22 +246,27 @@ var M=[
 {t:"Empezá sin agobio",free:1,l:[
 ["La regla de los 15 minutos",5,"El desorden no se vence en un fin de semana heroico, sino con ratos cortos. Poné un temporizador de 15 minutos y trabajá un solo rincón. Cuando suene, pará.\nParar a tiempo es parte del método: así mañana vas a querer volver.","Elegí un cajón o un estante y trabajá en él 15 minutos hoy."],
 ["Tu mapa de la casa",7,"Dibujá o anotá las zonas: cocina, baño, dormitorios, living, entrada. Calificá cada una del 1 al 5 según cuánto te molesta.\nEmpezá por la entrada o la cocina: son las que más ves y las que más tiempo te ahorran.","Escribí tus zonas y ponele una nota a cada una. Marcá cuál va primero."],
-["Las cuatro cajas",8,"Tené a mano cuatro cajas o bolsas: Se queda, Se va (donar), Se tira y Otro lugar. Cada objeto va a una, sin quedarse a mitad de camino.\nVaciá las cajas el mismo día: lo que queda en el pasillo vuelve a la casa.","Llená las cuatro cajas con 10 objetos de una zona y sacá de la casa las de “Se va” y “Se tira”."]]},
+["Las cuatro cajas",8,"Tené a mano cuatro cajas o bolsas: Se queda, Se va (donar), Se tira y Otro lugar. Cada objeto va a una, sin quedarse a mitad de camino.\nVaciá las cajas el mismo día: lo que queda en el pasillo vuelve a la casa.","Llená las cuatro cajas con 10 objetos de una zona y sacá de la casa las de “Se va” y “Se tira”."],
+["Tu kit de arranque",6,"Reuní en una caja o un balde lo que vas a usar siempre: trapo, esponja, bolsas de residuos, guantes y un rociador. Tenerlo todo junto te ahorra vueltas y excusas.\nGuardalo en un lugar de fácil acceso, cerca de donde más limpiás.","Armá tu kit de limpieza y dejalo a mano."]]},
 {t:"Limpieza que se mantiene",l:[
 ["Rutina diaria de 10 minutos",6,"Una casa limpia se sostiene con poco, todos los días: hacer la cama, lavar los platos, limpiar la mesada y levantar lo que está fuera de lugar.\nAtá la rutina a algo que ya hacés, como el mate de la mañana o la cena.","Escribí tus cuatro tareas diarias y hacé la rutina completa hoy."],
 ["Limpieza semanal por zonas",8,"En vez de limpiar todo en un día, asigná una zona a cada día: lunes baño, martes cocina, miércoles dormitorios, jueves polvo y pisos.\nVeinte minutos por zona alcanzan si la rutina diaria está al día.","Asigná una zona a cada día de la semana y ponela en tu calendario."],
-["Productos básicos y seguridad",7,"Con detergente neutro, vinagre, bicarbonato y un desengrasante resolvés casi todo. Menos productos, menos gasto y menos riesgo.\nNunca mezcles lavandina con vinagre, amoníaco ni otros limpiadores: se generan gases tóxicos. Ventilá siempre que uses productos fuertes.","Revisá tus productos de limpieza y apartá los que repiten función."]]},
+["Productos básicos y seguridad",7,"Con detergente neutro, vinagre, bicarbonato y un desengrasante resolvés casi todo. Menos productos, menos gasto y menos riesgo.\nNunca mezcles lavandina con vinagre, amoníaco ni otros limpiadores: se generan gases tóxicos. Ventilá siempre que uses productos fuertes.","Revisá tus productos de limpieza y apartá los que repiten función."],
+["Pisos y superficies",7,"Primero sacá el polvo seco, con escoba o aspiradora, y recién después lavá: si lavás con polvo, hacés barro.\nTrabajá del fondo hacia la salida para no pisar lo que ya limpiaste, y cambiá el agua cuando se ponga gris.","Limpiá un ambiente de punta a punta con ese orden y cronometrá cuánto tardás."]]},
 {t:"Cocina y baño",l:[
 ["La cocina de arriba abajo",10,"Limpiá de arriba hacia abajo: alacenas y estantes primero, después la mesada y al final el piso. Lo que cae no ensucia lo que ya limpiaste.\nCerrá con la cocina y la pileta, que es lo que más se nota.","Despejá la mesada y dejá solo lo que usás todos los días."],
-["Baño sin esfuerzo",8,"Aplicá el producto al empezar y dejalo actuar unos minutos mientras hacés otra cosa. El tiempo hace el trabajo, no la fuerza.\nTerminá con el espejo y el piso. Un secador de vidrios en la ducha evita el sarro.","Limpiá el baño con la técnica de dejar actuar y cronometralo."]]},
+["Baño sin esfuerzo",8,"Aplicá el producto al empezar y dejalo actuar unos minutos mientras hacés otra cosa. El tiempo hace el trabajo, no la fuerza.\nTerminá con el espejo y el piso. Un secador de vidrios en la ducha evita el sarro.","Limpiá el baño con la técnica de dejar actuar y cronometralo."],
+["Heladera y alacena",8,"Una vez por semana, antes de hacer las compras, mirá qué hay en la heladera: tirá lo vencido y poné adelante lo que hay que usar primero.\nLimpiá los estantes con agua tibia y un chorrito de vinagre. En la alacena, dejá a la altura de los ojos lo que usás todos los días.","Ordená un estante de la heladera y uno de la alacena."]]},
 {t:"Dormitorios y placards",l:[
 ["Placard por categorías",10,"Sacá todo y ponelo arriba de la cama. Probate lo dudoso y decidí: si no te queda o no lo usás, se va.\nVolvé a guardar por tipo y color, con el mismo tipo de percha.","Terminá una sección del placard: camisas, pantalones o abrigos."],
 ["Cama y mesa de luz",5,"La mesa de luz guarda lo que usás de noche: el velador, un libro, el cargador y poco más. Todo lo demás tiene otro lugar.\nUna cama hecha cambia cómo se ve todo el cuarto.","Vaciá tu mesa de luz y devolvé solo lo que usás cada noche."],
-["Ropa de temporada",7,"Guardá lo que no vas a usar en cajas transparentes y etiquetadas. Lavá todo antes de guardarlo.\nAnotá en la caja la fecha en que la vas a abrir de nuevo.","Prepará una caja de ropa de temporada y etiquetala."]]},
+["Ropa de temporada",7,"Guardá lo que no vas a usar en cajas transparentes y etiquetadas. Lavá todo antes de guardarlo.\nAnotá en la caja la fecha en que la vas a abrir de nuevo.","Prepará una caja de ropa de temporada y etiquetala."],
+["Papeles y cosas chiquitas",7,"Los papeles son lo que más se acumula. Armá tres carpetas o sobres: Para hacer, Para guardar y Para tirar. Lo que llega, va a uno de los tres el mismo día.\nUna vez al mes, revisá y vaciá la de Para tirar.","Armá tus tres carpetas y clasificá los papeles que tengas a la vista."]]},
 {t:"Hábitos para que dure",l:[
 ["Uno entra, uno sale",5,"Cada objeto nuevo que entra tiene que sacar a uno parecido. Así la casa no se vuelve a llenar.\nEs la regla más simple y la que más protege tu trabajo.","Aplicá la regla en la próxima compra que hagas."],
 ["Reset semanal de 20 minutos",6,"Un día fijo, dedicá 20 minutos a devolver todo a su lugar, vaciar la bandeja de papeles y preparar la semana.\nSi lo hacés siempre el mismo día, se vuelve hábito.","Elegí tu día y hora de reset y programalo."],
-["Tu plan de 30 días",8,"Juntá lo aprendido: una zona por semana, rutina diaria y reset semanal. Un ambiente a la vez.\nNo busques la perfección; buscá que cada semana esté un poco mejor.","Escribí tu plan de 4 semanas, una zona por semana."]]}
+["Tu plan de 30 días",8,"Juntá lo aprendido: una zona por semana, rutina diaria y reset semanal. Un ambiente a la vez.\nNo busques la perfección; buscá que cada semana esté un poco mejor.","Escribí tu plan de 4 semanas, una zona por semana."],
+["Plan B para semanas difíciles",6,"Va a haber semanas en las que no llegues a todo, y no pasa nada. Volvé al paso más chico: 15 minutos en un solo rincón.\nNo quieras recuperar todo de golpe. Retomá la rutina diaria y el reset semanal, y en pocos días estás de vuelta.","Escribí tu plan B: cuál es tu rincón de rescate para las semanas difíciles."]]}
 ];
 var S={done:{},pro:false,name:'',v:'home',m:0,l:0,tasks:[],shop:[]};
 var TRAD={'Limpiar la encimera':'Limpiar la mesada','Limpiar la estufa':'Limpiar la cocina y las hornallas','Limpiar el fregadero':'Limpiar la pileta','Limpiar el refrigerador':'Limpiar la heladera','Barrer y trapear el piso':'Barrer y lavar el piso','Limpiar el lavabo y el espejo':'Limpiar el lavatorio y el espejo','Limpiar la regadera o bañera':'Limpiar la ducha o la bañera','Trapear el piso':'Lavar el piso','Tender las camas':'Hacer las camas','Ordenar el buró':'Ordenar la mesa de luz','Aspirar o barrer':'Pasar la aspiradora o barrer','Sacudir el polvo':'Sacar el polvo','Acomodar cojines y mantas':'Acomodar almohadones y frazadas','Aspirar el sofá y la alfombra':'Pasar la aspiradora por el sillón y la alfombra','Ventilar las habitaciones':'Ventilar los ambientes'};
@@ -275,7 +294,7 @@ function go(m,l){if(locked(m)){paywall();return}S.v='lesson';S.m=m;S.l=l;S.mt=m;
 function paywall(){
   var d=document.getElementById('dlg');
   var msg=encodeURIComponent('Hola, hice la transferencia por el curso Casa en Orden ('+PRECIO_TRANSF+'). Te mando el comprobante.');
-  d.innerHTML='<h2>Desbloqueá el curso completo</h2><p class="sub">Los módulos 2 al 5 están incluidos en tu acceso completo.</p><ul class="ft"><li>14 lecciones con prácticas</li><li>Plan de 30 días</li><li>Certificado final</li><li>Acceso de por vida</li></ul><a class="btn" id="buy" href="'+MP_LINK+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Pagar '+PRECIO+' con Mercado Pago</a><p class="sub" style="margin:16px 0 6px"><b>O pagá por transferencia y tenés 5% de descuento:</b> <span class="tag">'+PRECIO_TRANSF+'</span> en vez de <s>'+PRECIO+'</s>. Transferí a este alias:</p><div class="row" style="margin-bottom:8px"><b style="flex:1;overflow-wrap:anywhere">'+ALIAS+'</b><button class="btn" id="ca" type="button">Copiar</button></div><a class="btn out" href="https://wa.me/'+WSP+'?text='+msg+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Enviar comprobante por WhatsApp</a><p class="sub" style="margin:16px 0 0">¿Ya pagaste? Ingresá tu código:</p><input id="cod" placeholder="Código de acceso" maxlength="20" aria-label="Código de acceso"><p class="sub" id="cm" role="status"></p><button class="btn" id="ok" style="width:100%">Desbloquear</button><button class="ghost" id="no" style="width:100%">Ahora no</button>';
+  d.innerHTML='<h2>Desbloqueá el curso completo</h2><p class="sub">Los módulos 2 al 5 están incluidos en tu acceso completo.</p><ul class="ft"><li>'+total()+' lecciones con prácticas</li><li>Plan de 30 días</li><li>Certificado final</li><li>Acceso de por vida</li></ul><a class="btn" id="buy" href="'+MP_LINK+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Pagar '+PRECIO+' con Mercado Pago</a><p class="sub" style="margin:16px 0 6px"><b>O pagá por transferencia y tenés 5% de descuento:</b> <span class="tag">'+PRECIO_TRANSF+'</span> en vez de <s>'+PRECIO+'</s>. Transferí a este alias:</p><div class="row" style="margin-bottom:8px"><b style="flex:1;overflow-wrap:anywhere">'+ALIAS+'</b><button class="btn" id="ca" type="button">Copiar</button></div><a class="btn out" href="https://wa.me/'+WSP+'?text='+msg+'" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Enviar comprobante por WhatsApp</a><p class="sub" style="margin:16px 0 0">¿Ya pagaste? Ingresá tu código:</p><input id="cod" placeholder="Código de acceso" maxlength="20" aria-label="Código de acceso"><p class="sub" id="cm" role="status"></p><button class="btn" id="ok" style="width:100%">Desbloquear</button><button class="ghost" id="no" style="width:100%">Ahora no</button>';
   d.showModal();
   document.getElementById('ca').onclick=function(){var b=this;try{navigator.clipboard.writeText(ALIAS).then(function(){b.textContent='Copiado ✓'},function(){b.textContent='Copiá a mano'})}catch(e){b.textContent='Copiá a mano'}};
   document.getElementById('ok').onclick=function(){
@@ -307,6 +326,7 @@ function home(){
   var h='<div class="appbar"><img src="icon-192.png" alt="" width="40" height="40"><b>Casa en Orden</b></div><div class="heroc"><span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
   h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><div class="chips"><span>⏱️ 15 min por día</span><span>🎤 Tareas y compras por voz</span><span>🎓 Certificado</span><span>♾️ Acceso de por vida</span></div>'+HERO+'</div>';
   if(!S.pro&&!GRATIS)h+='<div class="band"><b>¡Probá GRATIS el primer módulo!</b><span>El resto del curso se desbloquea con tu código de acceso.</span><button class="btn" type="button" data-pw="1">Desbloquear el curso</button></div>';
+  h+='<button class="btn out" id="chk" type="button" style="width:100%;margin-top:14px">🗓️ Checklist semanal para imprimir</button>';
   h+='<button class="btn out" id="ins" type="button" style="width:100%;margin-top:18px">📲 Cómo instalar el curso en tu celular</button><div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
 var cur=(S.mt==null)?(nextUndone()?nextUndone()[0]:0):S.mt;if(cur<0||cur>=M.length)cur=0;
   h+='<div class="mtabs" role="tablist">'+M.map(function(m,mi){var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;return '<button type="button" role="tab" class="mtab'+(mi===cur?' sel':'')+'" data-mt="'+mi+'" aria-selected="'+(mi===cur)+'" style="--mc:'+MCOL[mi][0]+';--mt:'+MCOL[mi][1]+'"><span class="e">'+MIC[mi]+'</span><b>Módulo '+(mi+1)+'</b><small>'+(dn===m.l.length?'✓ listo':dn+' de '+m.l.length)+'</small></button>'}).join('')+'</div>';
@@ -367,10 +387,15 @@ function dictar(dest){
   r.onerror=function(){setVm('No pude escuchar. '+tip)};
   r.onend=function(){if(m)m.classList.remove('rec')};
   try{r.start();m.classList.add('rec');setVm('Escuchando… hablá ahora.')}catch(e){setVm('No pude abrir el micrófono. '+tip)}}
+function checklist(){
+  var dias=['L','M','X','J','V','S','D'],h='<div class="noprint"><button class="ghost" id="back">← Temario</button></div><h1>Checklist semanal</h1><p class="sub">Tildá cada tarea el día que la hagas. Imprimila o guardala como PDF.</p>';
+  ZONAS.forEach(function(z){h+='<table class="chk"><thead><tr><th>'+z+'</th>'+dias.map(function(d){return '<th>'+d+'</th>'}).join('')+'</tr></thead><tbody>';DEF[z].forEach(function(t){h+='<tr><td>'+t+'</td>'+dias.map(function(){return '<td><span class="bx"></span></td>'}).join('')+'</tr>'});h+='</tbody></table>'});
+  return h+'<button class="btn noprint" id="prt" style="width:100%;margin-top:18px">🖨️ Imprimir o guardar como PDF</button>'}
 function render(){
-  document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras})[S.v]();
+  document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras,check:checklist})[S.v]();
   document.getElementById('tabs').innerHTML=[['home','🏠 Curso'],['tareas','✅ Mis tareas'],['compras','🛒 Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
   var f;
+  if(f=document.getElementById('chk'))f.onclick=function(){S.v='check';save();render();window.scrollTo(0,0)};
   if(f=document.getElementById('ins'))f.onclick=instalar;
   if(f=document.getElementById('vp'))f.onclick=function(){document.getElementById('prog').scrollIntoView({behavior:'smooth'})};
   document.querySelectorAll('[data-tv]').forEach(function(b){b.onclick=function(){S.v=b.dataset.tv;ED=null;save();render();window.scrollTo(0,0)}});
@@ -411,6 +436,7 @@ function render(){
   if(f=document.getElementById('prt'))f.onclick=function(){window.print()};
 }
 render();
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
 </script>
 </body>
 </html>
