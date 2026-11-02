@@ -79,7 +79,7 @@ form.add select{font:inherit;padding:12px 14px;border:1.5px solid var(--line);bo
 :root{--brand2:#5E9C6B;--sh:0 8px 26px rgba(20,41,27,.08)}
 
 body{background:radial-gradient(900px 420px at 50% -120px,var(--hi),transparent) no-repeat,var(--bg)}
-main>*{animation:up .45s ease both}
+main>*{animation:up .45s ease backwards}
 @keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){main>*{animation:none}.btn,.les{transition:none!important}}
 .heroc{background:linear-gradient(165deg,var(--card),var(--hi));border:1px solid var(--line);border-radius:32px;padding:28px 22px 14px;box-shadow:0 22px 50px rgba(53,96,63,.14)}
@@ -241,6 +241,10 @@ dialog{border:4px solid transparent;background:linear-gradient(#fff,#fff) paddin
 #back{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:12px;z-index:7;background:#fff;color:var(--brand);border:3px solid var(--brand);padding:11px 20px;font-size:1.05rem;font-weight:800;border-radius:999px;box-shadow:0 8px 20px rgba(11,154,102,.28)}
 #back:active{transform:scale(.97)}
 main.hasback{padding-top:84px}
+body.hasback::before{content:"";position:fixed;top:0;left:0;right:0;height:calc(66px + env(safe-area-inset-top,0px));background:#fff;border-bottom:3px solid var(--line);box-shadow:0 6px 16px rgba(15,45,82,.08);z-index:6}
+#back{box-shadow:none;padding:9px 18px;font-size:1rem}
+main.hasback{padding-top:88px}
+@media print{body.hasback::before{display:none}}
 </style>
 </head>
 <body>
@@ -400,7 +404,7 @@ function checklist(){
 function render(){
   document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras,check:checklist})[S.v]();
   document.getElementById('tabs').innerHTML=[['home','🏠 Curso'],['tareas','✅ Mis tareas'],['compras','🛒 Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
-  document.getElementById('app').classList.toggle('hasback',!!document.getElementById('back'));
+  document.getElementById('app').classList.toggle('hasback',!!document.getElementById('back'));document.body.classList.toggle('hasback',!!document.getElementById('back'));
   var f;
   document.querySelectorAll('[data-ck]').forEach(function(b){b.onclick=function(){S.chk=S.chk||{};var k=b.dataset.ck;if(S.chk[k]){delete S.chk[k];b.classList.remove('on');b.setAttribute('aria-pressed','false')}else{S.chk[k]=1;b.classList.add('on');b.setAttribute('aria-pressed','true')}save()}});
   if(f=document.getElementById('ckc'))f.onclick=function(){if(this.dataset.ok){S.chk={};save();render()}else{this.dataset.ok=1;this.textContent='Tocá de nuevo para destildar todo'}};
