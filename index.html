@@ -238,6 +238,9 @@ dialog{border:4px solid transparent;background:linear-gradient(#fff,#fff) paddin
 .bx{width:24px;height:24px;padding:0;background:#fff;border:2.5px solid var(--brand);border-radius:7px;vertical-align:middle;cursor:pointer;position:relative;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .bx.on{background:var(--brand)}
 .bx.on::after{content:"✓";color:#fff;font-weight:900;font-size:16px;line-height:1;position:absolute;inset:0;display:grid;place-items:center}
+#back{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:12px;z-index:7;background:#fff;color:var(--brand);border:3px solid var(--brand);padding:11px 20px;font-size:1.05rem;font-weight:800;border-radius:999px;box-shadow:0 8px 20px rgba(11,154,102,.28)}
+#back:active{transform:scale(.97)}
+main.hasback{padding-top:84px}
 </style>
 </head>
 <body>
@@ -345,10 +348,10 @@ var cur=(S.mt==null)?(nextUndone()?nextUndone()[0]:0):S.mt;if(cur<0||cur>=M.leng
   return h}
 function lesson(){
   var m=M[S.m],ls=m.l[S.l],d=S.done[S.m+'-'+S.l];
-  return '<button class="ghost" id="back">← Temario</button><p class="sub">Módulo '+(S.m+1)+' · '+m.t+' · '+ls[1]+' min</p><h1>'+ls[0]+'</h1><div class="les-body" style="margin-top:16px;--mc:'+MCOL[S.m][0]+';--mt:'+MCOL[S.m][1]+'">'+ls[2].split('\n').map(function(p){return'<p>'+p+'</p>'}).join('')+'</div><div class="task" style="--mc:'+MCOL[S.m][0]+';--mt:'+MCOL[S.m][1]+'"><b>Práctica</b><p>'+ls[3]+'</p><button class="ghost" id="addt" type="button">+ Agregar a mis tareas</button></div><button class="btn" id="fin" style="width:100%">'+(d?'Siguiente lección':'Hice la práctica. Completar')+'</button>'+(d?'<button class="ghost" id="undo" style="width:100%;margin-top:6px">Destildar esta lección para repetirla</button>':'')}
+  return '<button class="ghost" id="back">← Volver al temario</button><p class="sub">Módulo '+(S.m+1)+' · '+m.t+' · '+ls[1]+' min</p><h1>'+ls[0]+'</h1><div class="les-body" style="margin-top:16px;--mc:'+MCOL[S.m][0]+';--mt:'+MCOL[S.m][1]+'">'+ls[2].split('\n').map(function(p){return'<p>'+p+'</p>'}).join('')+'</div><div class="task" style="--mc:'+MCOL[S.m][0]+';--mt:'+MCOL[S.m][1]+'"><b>Práctica</b><p>'+ls[3]+'</p><button class="ghost" id="addt" type="button">+ Agregar a mis tareas</button></div><button class="btn" id="fin" style="width:100%">'+(d?'Siguiente lección':'Hice la práctica. Completar')+'</button>'+(d?'<button class="ghost" id="undo" style="width:100%;margin-top:6px">Destildar esta lección para repetirla</button>':'')}
 function cert(){
   if(count()<total()){S.v='home';return home()}
-  return '<div class="noprint"><button class="ghost" id="back">← Temario</button><h1>¡Lo lograste!</h1><p class="sub">Escribí tu nombre para tu certificado.</p><input id="nm" value="'+esc(S.name)+'" placeholder="Tu nombre" maxlength="40" aria-label="Tu nombre"></div><div class="cert"><p>Certificado de finalización</p><div class="n">'+esc(S.name||'Tu nombre')+'</div><p>completó el curso <b>Casa en Orden</b><br>'+new Date().toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'})+'</p></div><button class="btn noprint" id="prt" style="width:100%">Imprimir certificado</button>'}
+  return '<div class="noprint"><button class="ghost" id="back">← Volver al temario</button><h1>¡Lo lograste!</h1><p class="sub">Escribí tu nombre para tu certificado.</p><input id="nm" value="'+esc(S.name)+'" placeholder="Tu nombre" maxlength="40" aria-label="Tu nombre"></div><div class="cert"><p>Certificado de finalización</p><div class="n">'+esc(S.name||'Tu nombre')+'</div><p>completó el curso <b>Casa en Orden</b><br>'+new Date().toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'})+'</p></div><button class="btn noprint" id="prt" style="width:100%">Imprimir certificado</button>'}
 var ED=null,VMSG='';
 function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
 function escA(s){return esc(s).replace(/'/g,'&#39;')}
@@ -391,12 +394,13 @@ function dictar(dest){
   r.onend=function(){if(m)m.classList.remove('rec')};
   try{r.start();m.classList.add('rec');setVm('Escuchando… hablá ahora.')}catch(e){setVm('No pude abrir el micrófono. '+tip)}}
 function checklist(){
-  var dias=['L','M','X','J','V','S','D'],ck=S.chk||{},hay=Object.keys(ck).length>0,h='<div class="noprint"><button class="ghost" id="back">← Temario</button></div><h1>Checklist semanal</h1><p class="sub">Tocá una casilla para tildarla el día que hagas la tarea. También podés imprimirla o guardarla como PDF.</p>';
+  var dias=['L','M','X','J','V','S','D'],ck=S.chk||{},hay=Object.keys(ck).length>0,h='<div class="noprint"><button class="ghost" id="back">← Volver al temario</button></div><h1>Checklist semanal</h1><p class="sub">Tocá una casilla para tildarla el día que hagas la tarea. También podés imprimirla o guardarla como PDF.</p>';
   ZONAS.forEach(function(z,zi){h+='<table class="chk"><thead><tr><th>'+z+'</th>'+dias.map(function(d){return '<th>'+d+'</th>'}).join('')+'</tr></thead><tbody>';DEF[z].forEach(function(t,ti){h+='<tr><td>'+t+'</td>'+dias.map(function(d,di){var k=zi+'-'+ti+'-'+di;return '<td><button type="button" class="bx'+(ck[k]?' on':'')+'" data-ck="'+k+'" aria-pressed="'+(ck[k]?'true':'false')+'" aria-label="'+t+' '+d+'"></button></td>'}).join('')+'</tr>'});h+='</tbody></table>'});
   return h+'<button class="btn noprint" id="prt" style="width:100%;margin-top:18px">🖨️ Imprimir o guardar como PDF</button>'+(hay?'<button class="ghost noprint" id="ckc" style="width:100%;margin-top:8px">Destildar todo para empezar una semana nueva</button>':'')}
 function render(){
   document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras,check:checklist})[S.v]();
   document.getElementById('tabs').innerHTML=[['home','🏠 Curso'],['tareas','✅ Mis tareas'],['compras','🛒 Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
+  document.getElementById('app').classList.toggle('hasback',!!document.getElementById('back'));
   var f;
   document.querySelectorAll('[data-ck]').forEach(function(b){b.onclick=function(){S.chk=S.chk||{};var k=b.dataset.ck;if(S.chk[k]){delete S.chk[k];b.classList.remove('on');b.setAttribute('aria-pressed','false')}else{S.chk[k]=1;b.classList.add('on');b.setAttribute('aria-pressed','true')}save()}});
   if(f=document.getElementById('ckc'))f.onclick=function(){if(this.dataset.ok){S.chk={};save();render()}else{this.dataset.ok=1;this.textContent='Tocá de nuevo para destildar todo'}};
