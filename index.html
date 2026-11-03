@@ -245,6 +245,13 @@ body.hasback::before{content:"";position:fixed;top:0;left:0;right:0;height:calc(
 #back{box-shadow:none;padding:9px 18px;font-size:1rem}
 main.hasback{padding-top:88px}
 @media print{body.hasback::before{display:none}}
+.stats{display:flex;gap:10px;margin:18px 0 0}
+.st{flex:1;background:#fff;border:3px solid var(--c);border-radius:20px;padding:12px 8px;text-align:center;box-shadow:0 8px 18px color-mix(in srgb,var(--c) 18%,transparent)}
+.st b{display:block;font-size:1.05rem;font-weight:900;color:var(--ink)}
+.st span{display:block;font-size:.76rem;color:var(--mute);margin-top:2px;line-height:1.2}
+.seg{display:flex;gap:8px;margin:6px 0 12px}
+.seg button{flex:1;padding:11px;background:#fff;color:var(--brand);border:3px solid var(--brand);font-weight:800;border-radius:999px}
+.seg button.on{background:var(--brand);color:#fff}
 </style>
 </head>
 <body>
@@ -262,21 +269,25 @@ var M=[
 ["Rutina diaria de 10 minutos",6,"Una casa limpia se sostiene con poco, todos los días: hacer la cama, lavar los platos, limpiar la mesada y levantar lo que está fuera de lugar.\nAtá la rutina a algo que ya hacés, como el mate de la mañana o la cena.","Escribí tus cuatro tareas diarias y hacé la rutina completa hoy."],
 ["Limpieza semanal por zonas",8,"En vez de limpiar todo en un día, asigná una zona a cada día: lunes baño, martes cocina, miércoles dormitorios, jueves polvo y pisos.\nVeinte minutos por zona alcanzan si la rutina diaria está al día.","Asigná una zona a cada día de la semana y ponela en tu calendario."],
 ["Productos básicos y seguridad",7,"Con detergente neutro, vinagre, bicarbonato y un desengrasante resolvés casi todo. Menos productos, menos gasto y menos riesgo.\nNunca mezcles lavandina con vinagre, amoníaco ni otros limpiadores: se generan gases tóxicos. Ventilá siempre que uses productos fuertes.","Revisá tus productos de limpieza y apartá los que repiten función."],
-["Pisos y superficies",7,"Primero sacá el polvo seco, con escoba o aspiradora, y recién después lavá: si lavás con polvo, hacés barro.\nTrabajá del fondo hacia la salida para no pisar lo que ya limpiaste, y cambiá el agua cuando se ponga gris.","Limpiá un ambiente de punta a punta con ese orden y cronometrá cuánto tardás."]]},
+["Pisos y superficies",7,"Primero sacá el polvo seco, con escoba o aspiradora, y recién después lavá: si lavás con polvo, hacés barro.\nTrabajá del fondo hacia la salida para no pisar lo que ya limpiaste, y cambiá el agua cuando se ponga gris.","Limpiá un ambiente de punta a punta con ese orden y cronometrá cuánto tardás."],
+["Vidrios y ventanas",6,"Elegí un día nublado o limpiá a la tarde: con sol directo, el producto se seca rápido y deja marcas.\nPasá primero un paño húmedo y secá con un secador de vidrios o con papel de diario, de arriba hacia abajo y en forma de S.","Limpiá una ventana o un espejo con esa técnica."]]},
 {t:"Cocina y baño",l:[
 ["La cocina de arriba abajo",10,"Limpiá de arriba hacia abajo: alacenas y estantes primero, después la mesada y al final el piso. Lo que cae no ensucia lo que ya limpiaste.\nCerrá con la cocina y la pileta, que es lo que más se nota.","Despejá la mesada y dejá solo lo que usás todos los días."],
 ["Baño sin esfuerzo",8,"Aplicá el producto al empezar y dejalo actuar unos minutos mientras hacés otra cosa. El tiempo hace el trabajo, no la fuerza.\nTerminá con el espejo y el piso. Un secador de vidrios en la ducha evita el sarro.","Limpiá el baño con la técnica de dejar actuar y cronometralo."],
-["Heladera y alacena",8,"Una vez por semana, antes de hacer las compras, mirá qué hay en la heladera: tirá lo vencido y poné adelante lo que hay que usar primero.\nLimpiá los estantes con agua tibia y un chorrito de vinagre. En la alacena, dejá a la altura de los ojos lo que usás todos los días.","Ordená un estante de la heladera y uno de la alacena."]]},
+["Heladera y alacena",8,"Una vez por semana, antes de hacer las compras, mirá qué hay en la heladera: tirá lo vencido y poné adelante lo que hay que usar primero.\nLimpiá los estantes con agua tibia y un chorrito de vinagre. En la alacena, dejá a la altura de los ojos lo que usás todos los días.","Ordená un estante de la heladera y uno de la alacena."],
+["Horno y electrodomésticos",8,"Con el horno tibio, no caliente, pasá una pasta de bicarbonato y agua y dejala actuar 20 minutos. Después sacala con un trapo húmedo.\nEl microondas se limpia en un minuto: dejá un bol con agua y limón 2 minutos adentro y pasá un trapo.","Limpiá el microondas o el horno con el método de dejar actuar."]]},
 {t:"Dormitorios y placards",l:[
 ["Placard por categorías",10,"Sacá todo y ponelo arriba de la cama. Probate lo dudoso y decidí: si no te queda o no lo usás, se va.\nVolvé a guardar por tipo y color, con el mismo tipo de percha.","Terminá una sección del placard: camisas, pantalones o abrigos."],
 ["Cama y mesa de luz",5,"La mesa de luz guarda lo que usás de noche: el velador, un libro, el cargador y poco más. Todo lo demás tiene otro lugar.\nUna cama hecha cambia cómo se ve todo el cuarto.","Vaciá tu mesa de luz y devolvé solo lo que usás cada noche."],
 ["Ropa de temporada",7,"Guardá lo que no vas a usar en cajas transparentes y etiquetadas. Lavá todo antes de guardarlo.\nAnotá en la caja la fecha en que la vas a abrir de nuevo.","Prepará una caja de ropa de temporada y etiquetala."],
-["Papeles y cosas chiquitas",7,"Los papeles son lo que más se acumula. Armá tres carpetas o sobres: Para hacer, Para guardar y Para tirar. Lo que llega, va a uno de los tres el mismo día.\nUna vez al mes, revisá y vaciá la de Para tirar.","Armá tus tres carpetas y clasificá los papeles que tengas a la vista."]]},
+["Papeles y cosas chiquitas",7,"Los papeles son lo que más se acumula. Armá tres carpetas o sobres: Para hacer, Para guardar y Para tirar. Lo que llega, va a uno de los tres el mismo día.\nUna vez al mes, revisá y vaciá la de Para tirar.","Armá tus tres carpetas y clasificá los papeles que tengas a la vista."],
+["El cuarto de los chicos",7,"Armá cajas o canastos por tipo de juguete y ponele a cada uno una etiqueta con un dibujo, así los chicos pueden guardar solos.\nSumá una caja de Descanso: los juguetes que no se usan salen del cuarto por un mes y vuelven solo si los piden.","Elegí un tipo de juguete y armale su canasto."]]},
 {t:"Hábitos para que dure",l:[
 ["Uno entra, uno sale",5,"Cada objeto nuevo que entra tiene que sacar a uno parecido. Así la casa no se vuelve a llenar.\nEs la regla más simple y la que más protege tu trabajo.","Aplicá la regla en la próxima compra que hagas."],
 ["Reset semanal de 20 minutos",6,"Un día fijo, dedicá 20 minutos a devolver todo a su lugar, vaciar la bandeja de papeles y preparar la semana.\nSi lo hacés siempre el mismo día, se vuelve hábito.","Elegí tu día y hora de reset y programalo."],
 ["Tu plan de 30 días",8,"Juntá lo aprendido: una zona por semana, rutina diaria y reset semanal. Un ambiente a la vez.\nNo busques la perfección; buscá que cada semana esté un poco mejor.","Escribí tu plan de 4 semanas, una zona por semana."],
-["Plan B para semanas difíciles",6,"Va a haber semanas en las que no llegues a todo, y no pasa nada. Volvé al paso más chico: 15 minutos en un solo rincón.\nNo quieras recuperar todo de golpe. Retomá la rutina diaria y el reset semanal, y en pocos días estás de vuelta.","Escribí tu plan B: cuál es tu rincón de rescate para las semanas difíciles."]]}
+["Plan B para semanas difíciles",6,"Va a haber semanas en las que no llegues a todo, y no pasa nada. Volvé al paso más chico: 15 minutos en un solo rincón.\nNo quieras recuperar todo de golpe. Retomá la rutina diaria y el reset semanal, y en pocos días estás de vuelta.","Escribí tu plan B: cuál es tu rincón de rescate para las semanas difíciles."],
+["Que toda la casa colabore",6,"El orden no tiene que ser cosa de una sola persona. Armá una lista de tareas diarias y semanales y repartila entre quienes viven en la casa.\nPonela a la vista, por ejemplo en la heladera, y revisenla juntos en el reset semanal.","Repartí tres tareas de tu lista entre las personas de tu casa."]]}
 ];
 var S={done:{},pro:false,name:'',v:'home',m:0,l:0,tasks:[],shop:[]};
 var TRAD={'Limpiar la encimera':'Limpiar la mesada','Limpiar la estufa':'Limpiar la cocina y las hornallas','Limpiar el fregadero':'Limpiar la pileta','Limpiar el refrigerador':'Limpiar la heladera','Barrer y trapear el piso':'Barrer y lavar el piso','Limpiar el lavabo y el espejo':'Limpiar el lavatorio y el espejo','Limpiar la regadera o bañera':'Limpiar la ducha o la bañera','Trapear el piso':'Lavar el piso','Tender las camas':'Hacer las camas','Ordenar el buró':'Ordenar la mesa de luz','Aspirar o barrer':'Pasar la aspiradora o barrer','Sacudir el polvo':'Sacar el polvo','Acomodar cojines y mantas':'Acomodar almohadones y frazadas','Aspirar el sofá y la alfombra':'Pasar la aspiradora por el sillón y la alfombra','Ventilar las habitaciones':'Ventilar los ambientes'};
@@ -284,6 +295,10 @@ function migrar(){var ch=0;(S.tasks||[]).forEach(function(t){if(t.g==='Sala y co
 function load(){try{var r=localStorage.getItem('ceo');if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}migrar()}
 function save(){try{localStorage.setItem('ceo',JSON.stringify(S))}catch(e){}}
 load();
+function ymd(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function mark(){S.act=S.act||{};var k=ymd(new Date());S.act[k]=(S.act[k]||0)+1;save()}
+function racha(){var a=S.act||{},d=new Date(),n=0;if(!a[ymd(d)])d.setDate(d.getDate()-1);while(a[ymd(d)]){n++;d.setDate(d.getDate()-1)}return n}
+function semana(){var a=S.act||{},d=new Date(),n=0;for(var i=0;i<7;i++){if(a[ymd(d)])n++;d.setDate(d.getDate()-1)}return n}
 function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
 function total(){return M.reduce(function(a,m){return a+m.l.length},0)}
 function count(){return Object.keys(S.done).length}
@@ -321,6 +336,18 @@ function paywall(){
   };
   document.getElementById('no').onclick=function(){d.close()};
 }
+function recordatorio(){
+  var d=document.getElementById('dlg');
+  d.innerHTML='<h2>⏰ Recordatorio diario</h2><p class="sub">Elegí a qué hora querés tus 15 minutos. Se agrega a tu calendario y el celular te avisa todos los días.</p><input type="time" id="rh" value="19:00" aria-label="Hora del recordatorio"><a class="btn" id="rd" download="casa-en-orden-recordatorio.ics" href="#" style="display:block;text-align:center;text-decoration:none">Agregar a mi calendario</a><button class="ghost" id="rc" style="width:100%;margin-top:6px">Cerrar</button>';
+  d.showModal();
+  document.getElementById('rd').onclick=function(){
+    var t=(document.getElementById('rh').value||'19:00').split(':'),n=new Date(),p=function(x){return ('0'+x).slice(-2)},z=String.fromCharCode(13)+String.fromCharCode(10);
+    var st=n.getFullYear()+p(n.getMonth()+1)+p(n.getDate())+'T'+p(t[0])+p(t[1])+'00';
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Casa en Orden//ES','BEGIN:VEVENT','UID:ceo-diario@casa-en-orden.github.io','DTSTAMP:'+st,'DTSTART:'+st,'DURATION:PT15M','RRULE:FREQ=DAILY','SUMMARY:🏡 Casa en Orden: mis 15 minutos','DESCRIPTION:Abrí el curso: https://casa-en-orden.github.io/','BEGIN:VALARM','TRIGGER:PT0M','ACTION:DISPLAY','DESCRIPTION:Casa en Orden','END:VALARM','END:VEVENT','END:VCALENDAR'].join(z);
+    this.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+  };
+  document.getElementById('rc').onclick=function(){d.close()};
+}
 function instalar(){
   var d=document.getElementById('dlg');
   d.innerHTML='<h2>Instalá el curso en tu celular</h2><p class="sub">Así lo abrís con un toque desde la pantalla de inicio, como una app. Tu progreso queda guardado en ese celular.</p><h2 style="font-size:1rem">Android (Chrome)</h2><ol class="ft"><li>Abrí el curso en <b>Chrome</b>.</li><li>Tocá los <b>tres puntitos</b> de arriba a la derecha.</li><li>Elegí <b>Instalar aplicación</b> o <b>Agregar a la pantalla principal</b>.</li><li>Confirmá con <b>Instalar</b> o <b>Agregar</b>.</li></ol><h2 style="font-size:1rem">iPhone (Safari)</h2><ol class="ft"><li>Abrí el curso en <b>Safari</b> (no en otro navegador).</li><li>Tocá el botón <b>Compartir</b> (el cuadrado con una flecha hacia arriba).</li><li>Bajá y elegí <b>Agregar a pantalla de inicio</b>.</li><li>Tocá <b>Agregar</b>.</li></ol><h2 style="font-size:1rem">Computadora (Chrome o Edge)</h2><ol class="ft"><li>Abrí el curso en <b>Chrome</b> o <b>Edge</b>.</li><li>Tocá el ícono de <b>instalar</b> al final de la barra de direcciones (una pantallita con una flecha). Si no lo ves, abrí el menú de los tres puntitos y elegí <b>Instalar Casa en Orden</b> (en Edge: <b>Aplicaciones</b> y <b>Instalar este sitio como aplicación</b>).</li><li>Confirmá con <b>Instalar</b>. Se crea un acceso en el escritorio y en el menú Inicio.</li></ol><p class="sub">Si abriste el link desde WhatsApp, primero tocá <b>Abrir en el navegador</b> y después seguí los pasos.</p><button class="btn" id="cl" style="width:100%">Entendido</button>';
@@ -335,8 +362,9 @@ function home(){
   var n=count(),t=total(),nx=nextUndone();
   var h='<div class="appbar"><img src="icon-192.png" alt="" width="40" height="40"><b>Casa en Orden</b></div><div class="heroc"><span class="pill">Curso online · a tu ritmo</span><h1>Tu casa en orden, <em>en 15 minutos al día.</em></h1><p class="lead">Un método simple para organizar, limpiar y mantener tu casa sin estrés ni fines de semana perdidos.</p>';
   h+='<div class="cta">'+(nx?'<button class="btn" id="cont">'+(n?'Continuar':'Empezar hoy')+'</button>':'<button class="btn" id="cert">Ver mi certificado</button>')+'<button class="btn out" id="vp">Ver programa</button></div><div class="chips"><span>⏱️ 15 min por día</span><span>🎤 Tareas y compras por voz</span><span>🎓 Certificado</span><span>♾️ Acceso de por vida</span></div>'+HERO+'</div>';
+  h+='<div class="stats"><div class="st" style="--c:#FF8A3D"><b>🔥 '+racha()+'</b><span>'+(racha()===1?'día seguido':'días seguidos')+'</span></div><div class="st" style="--c:#2E9BFF"><b>📅 '+semana()+'/7</b><span>días activos esta semana</span></div><div class="st" style="--c:#0FB57A"><b>✅ '+n+'/'+t+'</b><span>lecciones listas</span></div></div><button class="btn out" id="rem" type="button" style="width:100%;margin-top:12px">⏰ Programar mi recordatorio diario</button>';
   if(!S.pro&&!GRATIS)h+='<div class="band"><b>¡Probá GRATIS el primer módulo!</b><span>El resto del curso se desbloquea con tu código de acceso.</span><button class="btn" type="button" data-pw="1">Desbloquear el curso</button></div>';
-  h+='<button class="btn out" id="chk" type="button" style="width:100%;margin-top:14px">🗓️ Checklist semanal para imprimir</button>';
+  h+='<button class="btn out" id="chk" type="button" style="width:100%;margin-top:14px">🗓️ Checklists semanal y mensual</button>';
   h+='<button class="btn out" id="ins" type="button" style="width:100%;margin-top:18px">📲 Cómo instalar el curso en tu celular</button><div class="prog" id="prog"><div><b>'+n+' de '+t+' lecciones</b><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div></div>'+(n?'<button class="ghost" id="rst">Destildar todo el curso para repetirlo</button>':'')+'</div>';
 var cur=(S.mt==null)?(nextUndone()?nextUndone()[0]:0):S.mt;if(cur<0||cur>=M.length)cur=0;
   h+='<div class="mtabs" role="tablist">'+M.map(function(m,mi){var dn=m.l.filter(function(x,li){return S.done[mi+'-'+li]}).length;return '<button type="button" role="tab" class="mtab'+(mi===cur?' sel':'')+'" data-mt="'+mi+'" aria-selected="'+(mi===cur)+'" style="--mc:'+MCOL[mi][0]+';--mt:'+MCOL[mi][1]+'"><span class="e">'+MIC[mi]+'</span><b>Módulo '+(mi+1)+'</b><small>'+(dn===m.l.length?'✓ listo':dn+' de '+m.l.length)+'</small></button>'}).join('')+'</div>';
@@ -397,23 +425,29 @@ function dictar(dest){
   r.onerror=function(){setVm('No pude escuchar. '+tip)};
   r.onend=function(){if(m)m.classList.remove('rec')};
   try{r.start();m.classList.add('rec');setVm('Escuchando… hablá ahora.')}catch(e){setVm('No pude abrir el micrófono. '+tip)}}
+var DEF2={'Cocina':['Limpiar el horno','Descongelar y limpiar el freezer','Limpiar las alacenas por dentro','Limpiar rejillas y desagües'],'Baño':['Descalcificar canillas y ducha','Lavar la cortina y la alfombra','Limpiar azulejos y juntas'],'Dormitorios':['Airear o dar vuelta los colchones','Lavar almohadas y cubrecamas','Ordenar un cajón o sección del placard'],'Living y comedor':['Lavar o sacudir las cortinas','Limpiar vidrios y ventanas','Limpiar detrás de los muebles','Pasar un paño por zócalos y puertas'],'Toda la casa':['Revisar y donar lo que no usás','Revisar y reponer productos de limpieza']};
 function checklist(){
-  var dias=['L','M','X','J','V','S','D'],ck=S.chk||{},hay=Object.keys(ck).length>0,h='<div class="noprint"><button class="ghost" id="back">← Volver al temario</button></div><h1>Checklist semanal</h1><p class="sub">Tocá una casilla para tildarla el día que hagas la tarea. También podés imprimirla o guardarla como PDF.</p>';
-  ZONAS.forEach(function(z,zi){h+='<table class="chk"><thead><tr><th>'+z+'</th>'+dias.map(function(d){return '<th>'+d+'</th>'}).join('')+'</tr></thead><tbody>';DEF[z].forEach(function(t,ti){h+='<tr><td>'+t+'</td>'+dias.map(function(d,di){var k=zi+'-'+ti+'-'+di;return '<td><button type="button" class="bx'+(ck[k]?' on':'')+'" data-ck="'+k+'" aria-pressed="'+(ck[k]?'true':'false')+'" aria-label="'+t+' '+d+'"></button></td>'}).join('')+'</tr>'});h+='</tbody></table>'});
-  return h+'<button class="btn noprint" id="prt" style="width:100%;margin-top:18px">🖨️ Imprimir o guardar como PDF</button>'+(hay?'<button class="ghost noprint" id="ckc" style="width:100%;margin-top:8px">Destildar todo para empezar una semana nueva</button>':'')}
+  var m=S.cv==='m',cols=m?['S1','S2','S3','S4']:['L','M','X','J','V','S','D'],src=m?DEF2:DEF,ck=S.chk||{};
+  var hay=Object.keys(ck).some(function(k){return m?k.charAt(0)==='m':k.charAt(0)!=='m'});
+  var h='<div class="noprint"><button class="ghost" id="back">← Volver al temario</button></div><h1>'+(m?'Checklist del mes':'Checklist semanal')+'</h1><div class="seg noprint"><button type="button" id="cvs" class="'+(m?'':'on')+'">Semanal</button><button type="button" id="cvm" class="'+(m?'on':'')+'">Mensual</button></div><p class="sub">'+(m?'Limpieza profunda, una semana a la vez y sin apuro. Tocá una casilla cuando termines la tarea.':'Tocá una casilla para tildarla el día que hagas la tarea.')+' También podés imprimirla o guardarla como PDF.</p>';
+  ZONAS.forEach(function(z,zi){if(!src[z])return;h+='<table class="chk"><thead><tr><th>'+z+'</th>'+cols.map(function(d){return '<th>'+d+'</th>'}).join('')+'</tr></thead><tbody>';src[z].forEach(function(t,ti){h+='<tr><td>'+t+'</td>'+cols.map(function(d,di){var k=(m?'m-':'')+zi+'-'+ti+'-'+di;return '<td><button type="button" class="bx'+(ck[k]?' on':'')+'" data-ck="'+k+'" aria-pressed="'+(ck[k]?'true':'false')+'" aria-label="'+t+' '+d+'"></button></td>'}).join('')+'</tr>'});h+='</tbody></table>'});
+  return h+'<button class="btn noprint" id="prt" style="width:100%;margin-top:18px">🖨️ Imprimir o guardar como PDF</button>'+(hay?'<button class="ghost noprint" id="ckc" style="width:100%;margin-top:8px">'+(m?'Destildar todo para empezar un mes nuevo':'Destildar todo para empezar una semana nueva')+'</button>':'')}
 function render(){
   document.getElementById('app').innerHTML=({home:home,lesson:lesson,cert:cert,tareas:tareas,compras:compras,check:checklist})[S.v]();
   document.getElementById('tabs').innerHTML=[['home','🏠 Curso'],['tareas','✅ Mis tareas'],['compras','🛒 Compras']].map(function(x){var on=(S.v===x[0])||(x[0]==='home'&&S.v!=='tareas'&&S.v!=='compras');return `<button data-tv='${x[0]}'${on?' aria-current=page':''}>${x[1]}</button>`}).join('');
   document.getElementById('app').classList.toggle('hasback',!!document.getElementById('back'));document.body.classList.toggle('hasback',!!document.getElementById('back'));
   var f;
-  document.querySelectorAll('[data-ck]').forEach(function(b){b.onclick=function(){S.chk=S.chk||{};var k=b.dataset.ck;if(S.chk[k]){delete S.chk[k];b.classList.remove('on');b.setAttribute('aria-pressed','false')}else{S.chk[k]=1;b.classList.add('on');b.setAttribute('aria-pressed','true')}save()}});
-  if(f=document.getElementById('ckc'))f.onclick=function(){if(this.dataset.ok){S.chk={};save();render()}else{this.dataset.ok=1;this.textContent='Tocá de nuevo para destildar todo'}};
+  document.querySelectorAll('[data-ck]').forEach(function(b){b.onclick=function(){S.chk=S.chk||{};var k=b.dataset.ck;if(S.chk[k]){delete S.chk[k];b.classList.remove('on');b.setAttribute('aria-pressed','false')}else{S.chk[k]=1;mark();b.classList.add('on');b.setAttribute('aria-pressed','true')}save()}});
+  if(f=document.getElementById('cvs'))f.onclick=function(){S.cv='s';save();render()};
+  if(f=document.getElementById('cvm'))f.onclick=function(){S.cv='m';save();render()};
+  if(f=document.getElementById('ckc'))f.onclick=function(){if(this.dataset.ok){var mm=S.cv==='m';Object.keys(S.chk||{}).forEach(function(k){if(mm?k.charAt(0)==='m':k.charAt(0)!=='m')delete S.chk[k]});save();render()}else{this.dataset.ok=1;this.textContent='Tocá de nuevo para destildar todo'}};
   if(f=document.getElementById('chk'))f.onclick=function(){S.v='check';save();render();window.scrollTo(0,0)};
+  if(f=document.getElementById('rem'))f.onclick=recordatorio;
   if(f=document.getElementById('ins'))f.onclick=instalar;
   if(f=document.getElementById('vp'))f.onclick=function(){document.getElementById('prog').scrollIntoView({behavior:'smooth'})};
   document.querySelectorAll('[data-tv]').forEach(function(b){b.onclick=function(){S.v=b.dataset.tv;ED=null;save();render();window.scrollTo(0,0)}});
   if(f=document.getElementById('ft'))f.onsubmit=function(e){e.preventDefault();var v=document.getElementById('tn').value.trim();if(v){S.tasks.push({id:Date.now(),g:document.getElementById('tg').value,n:v,c:0});save();render()}};
-  document.querySelectorAll('[data-tc]').forEach(function(i){i.onchange=function(){var t=S.tasks.find(function(x){return x.id==i.dataset.tc});t.c=i.checked?1:0;save();render()}});
+  document.querySelectorAll('[data-tc]').forEach(function(i){i.onchange=function(){var t=S.tasks.find(function(x){return x.id==i.dataset.tc});t.c=i.checked?1:0;if(i.checked)mark();save();render()}});
   document.querySelectorAll('[data-td]').forEach(function(b){b.onclick=function(){S.tasks=S.tasks.filter(function(x){return x.id!=b.dataset.td});save();render()}});
   document.querySelectorAll('[data-ed]').forEach(function(b){b.onclick=function(){ED=+b.dataset.ed;render();var el=document.getElementById('et');if(el)el.focus()}});
   if(f=document.getElementById('et'))f.onkeydown=function(e){if(e.key==='Enter')saveEd()};
@@ -440,7 +474,7 @@ function render(){
   if(f=document.getElementById('back'))f.onclick=function(){S.v='home';save();render()};
   if(f=document.getElementById('cert'))f.onclick=function(){S.v='cert';save();render();window.scrollTo(0,0)};
   if(f=document.getElementById('fin'))f.onclick=function(){
-    S.done[S.m+'-'+S.l]=1;
+    S.done[S.m+'-'+S.l]=1;mark();
     var m=S.m,l=S.l+1;if(l>=M[m].l.length){m++;l=0}
     if(m>=M.length){S.v=count()>=total()?'cert':'home';save();render();window.scrollTo(0,0);return}
     if(locked(m)){S.v='home';save();render();paywall();return}
